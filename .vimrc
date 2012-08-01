@@ -26,18 +26,6 @@ set keywordprg=":help"
 
 "remember marks
 set viminfo='100,f1
-"
-"*************** VIM LATEX ************
-filetype plugin on
-filetype indent on
-
-"**************************************
-"*************** Tag List plugin ******
-let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
-let tlist_make_settings  = 'make;m:makros;t:targets'
-
-set foldlevel=1
 
 "keep vim from screwing up creation dates, labels, etc.
 set nowb
@@ -48,6 +36,8 @@ set nowb
 set history=150    " keep 50 lines of command line history
 set showcmd    " display incomplete commands
 set incsearch    " do incremental searching
+
+set hidden
 
 if &t_Co > 2 || has("gui_running")
 " Switch syntax highlighting on, when the terminal has colors
@@ -75,4 +65,21 @@ if has("autocmd")
 
   augroup END
 endif " has("autocmd")
+
+"*************** VIM LATEX ************
+filetype plugin on
+filetype indent on
+
+"**************************************
+"*************** Tag List plugin ******
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+let tlist_make_settings  = 'make;m:makros;t:targets'
+
+set foldlevel=1
+
+"**************************************
+"*************** Pathogen Plugin ******
+call pathogen#infect()
+call pathogen#helptags()
 
