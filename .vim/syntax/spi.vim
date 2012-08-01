@@ -123,6 +123,7 @@ syn match    ocamlKeyChar      "->"
 syn match    ocamlKeyChar      ";"
 syn match    ocamlKeyChar      "\."
 syn match    ocamlKeyChar      "="
+syn match    ocamlKeyChar      "==>"
 
 syn match    ocamlNumber        "\<\d\d*\>"
 

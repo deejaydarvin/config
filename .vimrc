@@ -30,7 +30,12 @@ set viminfo='100,f1
 "*************** VIM LATEX ************
 filetype plugin on
 filetype indent on
+
 "**************************************
+"*************** Tag List plugin ******
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+let tlist_make_settings  = 'make;m:makros;t:targets'
 
 set foldlevel=1
 
