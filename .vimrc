@@ -1,4 +1,12 @@
 colorscheme murphy
+"
+"**************************************
+"*************** Pathogen Plugin ******
+call pathogen#infect()
+call pathogen#helptags()
+
+"************************************************************
+"********* Standard Stuff ***********************************
 
 set nocompatible
 
@@ -78,8 +86,13 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 
 set foldlevel=1
 
-"**************************************
-"*************** Pathogen Plugin ******
-call pathogen#infect()
-call pathogen#helptags()
 
+"**************************************
+"*************** Nerdtree Plugin ******
+
+nnoremap <silent> \n :NERDTreeToggle<CR>
+
+"***************************************
+"********** Lusty Jugglyer Plugin ******
+"Suppress Warnings on old vim version
+let g:LustyJugglerSuppressRubyWarning = 1
