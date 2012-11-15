@@ -2,19 +2,48 @@ export PATH=~/bin:~/bin/maude:/usr/local/git/bin/:$HOME/Library/Haskell/bin:$PAT
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
-alias secsi_edit="ssh -t doru.lsv vim public_html/gdt-secsi/programme.php"
+alias secsi_edit="ssh -t gomu.lsv vim public_html/gdt-secsi/programme.php"
 #or gomu, doru, datte
 alias secsi_mail="ssh lsv \"cat public_html/gdt-secsi/programme.php\" | write_mail.pl > ~/Desktop/gdt-secsi.eml"
+
+alias wget="curl -O"
+
+#tab completition for my pw manager pw.pl
+_pwpl()
+{
+	local cur prev opts base
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	prev="${COMP_WORDS[COMP_CWORD-1]}"
+	opts="new cat ls edit pw"
+
+	case "${prev}" in
+		cat|edit)
+			local files=$(pw.pl ls)
+			COMPREPLY=( $(compgen -W "${files}" -- ${cur}) )
+			return 0
+			;;
+		*)
+			;;
+	esac
+
+	COMPREPLY=($(compgen -W "${opts}" -- ${cur})) 
+	return 0
+}
+complete -F _pwpl -o dirnames pw.pl
 
 #git vimdiff
 function git_diff() {
     git diff --no-ext-diff -w "$@" | vim -R -
 }
 
+#colourful git stuff...
 ps_scm_f() {
     local color="\[\033[01;31m\]"
     local s=
-    if [[ -d ".svn" ]] ; then
+	if [ "$PWD" == "$HOME" ]; then
+		s=home
+    elif [[ -d ".svn" ]] ; then
         local r=$(svnversion)
         local status=$(svn status | grep -q -v '^?' && echo -n "*" )
         s="r$r$status"
@@ -87,4 +116,5 @@ __git_prompt_command() {
 }
 PS1="\w\$"
 PROMPT_COMMAND=__git_prompt_command
+
 
