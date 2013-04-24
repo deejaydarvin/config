@@ -1,0 +1,186 @@
+extends texmath
+
+###########################################################################
+#                             LATEX SNIPPETS                              #
+###########################################################################
+
+snippet r "\ref{}" w
+\ref{$1}
+endsnippet
+
+snippet ar "\autoref{}" w
+\autoref{$1}
+endsnippet
+
+###########################################################################
+#                            TEXTMATE SNIPPETS                            #
+###########################################################################
+
+#################
+# GENERAL STUFF #
+#################
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+####################
+# TABULARS, ARRAYS #
+####################
+
+snippet tab
+\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+$0${2/((?<=.)c|l|r)|./(?1: & )/g}
+\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+########################
+# ENUM, DESCR, ITEMIZE #
+########################
+snippet enum "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+#####################################
+# SECTIONS, CHAPTERS AND THERE LIKE #
+#####################################
+
+snippet part "Part" b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
+
+${0}
+
+% part $2 (end)
+endsnippet
+
+snippet cha "Chapter" b
+\chapter{${1:chapter name}}
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% chapter $2 (end)
+endsnippet
+
+snippet sec "Section" b
+\section{${1:section name}} 
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% section $2 (end)
+endsnippet
+
+
+snippet sub "Subsection" b
+\subsection{${1:subsection name}}
+\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subsection $2 (end)
+endsnippet
+
+snippet ssub "Subsubsection" b
+\subsubsection{${1:subsubsection name}}
+\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subsubsection $2 (end)
+
+endsnippet
+
+snippet par "Paragraph" b
+\paragraph{${1:paragraph name}}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% paragraph $2 (end)
+endsnippet
+
+
+snippet subp "Subparagraph" b
+\subparagraph{${1:subparagraph name}}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subparagraph $2 (end)
+endsnippet
+
+
+#My own stuff:
+snippet def
+\begin{definition}[${1:definition name}] %{{{ 
+\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
+${3}
+% definition $2 (end)
+\end{definition}%}}}
+endsnippet
+
+snippet inpara
+\begin{inparaenum}[\itshape a\upshape)]
+\item ${1}
+\end{inparaenum}
+endsnippet
+
+snippet fig
+\begin{figure}[h] % (fold)
+\centering
+${3:${VISUAL}}
+\caption{ ${1:figure caption} }
+\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
+% figure $2 (end)
+\end{figure}
+endsnippet
+
+snippet _ "_{}" i
+_{${1}}${2}
+endsnippet
+
+snippet ^ "^{}" i
+^{${1}}${2}
+endsnippet
+
+snippet stackrel 
+\stackrel{${1}}{${2:\longrightarrow}}${3}
+endsnippet
+
+
+snippet "\\t(ext)?" "\textSOMETHING{}" r
+\text${1:something}{${2:${VISUAL}}}${3}
+endsnippet
+
+snippet "\\m(ath)?" "\mathSOMETHING" r
+\math${1:something}{${2:${VISUAL}}}${3}
+endsnippet
+
+snippet "\\mit" "\mathit" r
+\mathit{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mrm" "\mathrm" r
+\mathrm{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mtt" "\mathtt" r
+\mathtt{${1:${VISUAL}}}${2}
+endsnippet
+
+# vim:ft=snippets:
