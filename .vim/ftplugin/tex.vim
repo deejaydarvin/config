@@ -1,19 +1,19 @@
-set tw=75
+setlocal tw=75
+setlocal iskeyword=@,48-57,_,192-255,:
 
-set spell spelllang=en
-set autowrite
-map <buffer> \m :!make &
-map <buffer> \p :!open %:r.pdf
-nnoremap <silent> \t :TlistOpen<CR>
-"imap <buffer> __ _{}<Left>
 
-"If you want to try..
-"iab <buffer> __ _{}<Left>
+setlocal spell spelllang=en
+setlocal autowrite
+map <buffer> \m :make<CR> 
+map <buffer> \p :make open<CR>
+
+let g:syntastic_quiet_warnings=1
 
 setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
 if filereadable('Makefile')
   setlocal makeprg=make
 else
-  exec "setlocal makeprg=make\\ -f\\ ~/src/latex.mk\\ " . substitute(bufname("%"),"tex$","pdf", "")
+		" does not work with filenames that contain spaces	
+  " exec "setlocal makeprg=make\\ -f\\ ~/src/latex.mk\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 

@@ -143,13 +143,13 @@ snippet inpara
 endsnippet
 
 snippet fig
-\begin{figure}[h] % (fold)
+\begin{figure}[h] %{{{fig
 \centering
 ${3:${VISUAL}}
 \caption{ ${1:figure caption} }
 \label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
 % figure $2 (end)
-\end{figure}
+\end{figure} %}}}
 endsnippet
 
 snippet _ "_{}" i
@@ -181,6 +181,10 @@ snippet "\\mrm" "\mathrm" r
 endsnippet
 snippet "\\mtt" "\mathtt" r
 \mathtt{${1:${VISUAL}}}${2}
+endsnippet
+
+snippet rob
+\robert{${1:${VISUAL}}}${2}
 endsnippet
 
 # vim:ft=snippets:
