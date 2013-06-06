@@ -1,10 +1,15 @@
+if filereadable("/Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim")
+	source /Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim
+endif
+
 setlocal tw=75
 setlocal iskeyword=@,48-57,_,192-255,:
 
+setlocal fo+=nt
 
 setlocal spell spelllang=en
 setlocal autowrite
-map <buffer> \m :make<CR> 
+map <buffer> \m :Make<CR> 
 map <buffer> \p :make open<CR>
 
 let g:syntastic_quiet_warnings=1

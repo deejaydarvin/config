@@ -2,7 +2,6 @@
 "*************** Pathogen Plugin ******
 call pathogen#infect()
 call pathogen#helptags()
-
 "************************************************************
 "********* Standard Stuff ***********************************
 
@@ -16,9 +15,9 @@ set sw=4 ts=4
 " colorscheme ironman
 colorscheme jellybeans
 
-set scrolloff=2
+set scrolloff=10
 set wildmode=list:longest
-set smartcase
+
 
 set noerrorbells
 set novisualbell
@@ -27,15 +26,18 @@ set t_vb=
 set wrap
 set lbr "line break: don't break middle of a word
 
-" set formatoptions=qrn1
+set formatoptions=croql "standard
+set formatoptions+=n "recognize numbered lists
+set formatoptions+=1 "don't break a line after a one-letter word
+set formatoptions+=j "joining lines removes comments
 " set formatoptions+=a "extra: autowrap
+
 set colorcolumn=85
 " These lines manage my line wrapping settings and also show a colored column at
 " 85 characters (so I can see when I write a too-long line of code).
 
 " See :help fo-table and the Vimcasts on soft wrapping and hard wrapping for
 " more information.
-
 
 nnoremap j gj
 nnoremap k gk
@@ -55,9 +57,11 @@ set nowb
 "set nobackup    " do not keep a backup file, use versions instead
 "set backupcopy "no"
 
-set history=150    " keep 50 lines of command line history
+" search stuff
+set history=250    " keep 50 lines of command line history
 set showcmd    " display incomplete commands
 set incsearch    " do incremental searching
+set smartcase
 
 set hidden
 
@@ -116,12 +120,6 @@ nnoremap <leader><space> :noh<cr>
 " The last two lines make the tab key match bracket pairs. I use this to move
 " around all the time and <tab> is a hell of a lot easier to type than %.
 
-au FocusLost * :wa
-" Finally, I really like TextMate’s “save on losing focus” feature. I can’t
-" remember a time when I didn’t want to save a file after tabbing away from my
-" editor (especially with version control and Vim’s persistent undo):
-
-
 nnoremap <leader>q gqip
 
 " Only do this part when compiled with support for autocommands.
@@ -137,6 +135,23 @@ if has("autocmd")
 
   augroup END
 endif " has("autocmd")
+
+"*************** STORE SWAP BACK AND UNDO IN BLA DIR ************
+let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+if isdirectory(expand(s:dir))
+  if &directory =~# '^\.,'
+    let &directory = expand(s:dir) . '/swap//,' . &directory
+  endif
+  if &backupdir =~# '^\.,'
+    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
+  endif
+  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
+    let &undodir = expand(s:dir) . '/undo//,' . &undodir
+  endif
+endif
+if exists('+undofile')
+  set undofile
+endif
 
 "*************** VIM LATEX ************
 filetype plugin on
@@ -194,6 +209,7 @@ au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<
 "**************************************
 "*************** Custom Keybindings ***
 map <silent> <Leader>b :LustyJuggler<CR>
+map <silent> <Leader>e :LustyFilesystemExplorer<CR>
 nmap <silent> <Leader>x :bn<CR>
 nmap <silent> <Leader>z :bp<CR>
 nnoremap <silent> \t :TlistOpen<CR>
@@ -214,3 +230,6 @@ au BufRead *.vis so %
 set clipboard=unnamed
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
+
+" only show 10 spell suggestions
+set spellsuggest=10
