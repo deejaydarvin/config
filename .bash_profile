@@ -1,12 +1,24 @@
-export PATH=~/bin:~/bin/maude:/usr/local/git/bin/:$HOME/Library/Haskell/bin:$PATH
+export PATH=~/bin:~/bin/maude:/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:~/Library/Haskell/bin:/usr/local/share/python:/Users/robert/Documents/computern/android/android\ sdk/android-sdk-macosx/platform-tools:$PATH 
 
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
+export MAUDE_LIB=/Users/robert/bin/maude
 
-alias secsi_edit="ssh -t gomu.lsv vim public_html/gdt-secsi/programme.php"
-#or gomu, doru, datte
-alias secsi_mail="ssh lsv \"cat public_html/gdt-secsi/programme.php\" | write_mail.pl > ~/Desktop/gdt-secsi.eml"
+set -o vi #vim input mode
+alias :e=vim 
 
-alias wget="curl -O"
+alias bc='bc -l' #always have bc with math libraries and large scale
+alias ls='ls -G'
+
+alias t='task rc:/Users/robert/Documents/research/secure_apis/thesis/.taskrc'
+alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
+
+#alias wget="curl -O"
+
+############################################################
+########## TAB COMPLETITION           ######################
+############################################################
+
+#tab completition for brew
+source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 #tab completition for my pw manager pw.pl
 _pwpl()
@@ -116,5 +128,6 @@ __git_prompt_command() {
 }
 PS1="\w\$"
 PROMPT_COMMAND=__git_prompt_command
+
 
 

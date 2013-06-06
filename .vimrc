@@ -29,7 +29,7 @@ set lbr "line break: don't break middle of a word
 set formatoptions=croql "standard
 set formatoptions+=n "recognize numbered lists
 set formatoptions+=1 "don't break a line after a one-letter word
-set formatoptions+=j "joining lines removes comments
+" set formatoptions+=j "joining lines removes comments
 " set formatoptions+=a "extra: autowrap
 
 set colorcolumn=85
