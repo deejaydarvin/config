@@ -34,3 +34,9 @@
 [submodule ".vim/bundle/sub-tags.git"]
 	path = .vim/bundle/sub-tags.git
 	url = https://github.com/szw/vim-tags.git
+[submodule ".vim/bundle/sub-tagbar"]
+	path = .vim/bundle/sub-tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim/bundle/sub-signifie"]
+	path = .vim/bundle/sub-signifie
+	url = https://github.com/mhinz/vim-signify.git

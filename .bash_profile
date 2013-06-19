@@ -17,6 +17,9 @@ alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
 ########## TAB COMPLETITION           ######################
 ############################################################
 
+#tab completition for taks warrior
+source /usr/local/share/doc/task/scripts/bash/task.sh
+
 #tab completition for brew
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
