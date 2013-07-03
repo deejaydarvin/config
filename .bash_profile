@@ -23,7 +23,10 @@ source /usr/local/share/doc/task/scripts/bash/task.sh
 #tab completition for brew
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
-#tab completition for my pw manager pw.pl
+#tab completition for pass
+source /usr/local/Cellar/pass/1.4.2/etc/bash_completion.d/password-store
+
+#tab completition for my pw manager pw.pl (Obsolete, I am using pass now)
 _pwpl()
 {
 	local cur prev opts base

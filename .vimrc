@@ -18,7 +18,6 @@ colorscheme jellybeans
 set scrolloff=10
 set wildmode=list:longest
 
-
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -39,9 +38,10 @@ set colorcolumn=85
 " See :help fo-table and the Vimcasts on soft wrapping and hard wrapping for
 " more information.
 
+set backspace=indent,eol,start
+
 nnoremap j gj
 nnoremap k gk
-
 
 set sidescroll=5
 set laststatus=1
