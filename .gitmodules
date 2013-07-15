@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/sub-signifie"]
 	path = .vim/bundle/sub-signifie
 	url = https://github.com/mhinz/vim-signify.git
+[submodule ".vim/bundle/sub-tex-9"]
+	path = .vim/bundle/sub-tex-9
+	url = https://github.com/vim-scripts/TeX-9
