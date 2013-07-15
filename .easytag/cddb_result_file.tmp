@@ -1,0 +1,29 @@
+HTTP/1.1 200 OK
+Date: Sun, 09 Jun 2013 12:41:10 GMT
+Server: Apache/2.2.14 (Ubuntu)
+Content-Length: 427
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+210 OK, CDDB database entry follows (until terminating `.')
+# xmcd CD database file
+#
+# Track frame offsets:
+#	150
+#
+# Disc length: 223 seconds
+#
+# Revision: 1
+# Processed by: mb2freedb 0.9.1
+# Submitted via: mb2freedb 0.9.1 MusicBrainz FREEDB gateway
+#
+DISCID=00098ac2
+DTITLE=The Killers / Tranquilize
+DYEAR=2007
+DGENRE=Unknown
+TTITLE0=The Killers feat. Lou Reed / Tranquilize
+EXTD=
+EXTT0=
+PLAYORDER=
+.

@@ -1,0 +1,16 @@
+# Unison preferences file
+sshcmd = /Users/robert/.unison/sshcommand
+root = /Users/robert/Unison
+root = ssh://pi@diderot.servebeer.com//media/42614a6d-65b6-45a8-b65b-2b027dd62fdc/Unison
+
+mountpoint = .
+
+ignore = Name .DS_Store
+ignore = Name *.bak
+ignore = Name ~*
+
+#und so ignoriert man pfade
+#ignore = Path Library/Temperature/current-outside.txt
+
+logfile = /Users/robert/.unison/Unison2Piscine.log
+
