@@ -14,6 +14,10 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias :e=vim 
 
+alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
+alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
+alias grep='grep --color=auto'
+
 alias bc='bc -l' #always have bc with math libraries and large scale
 alias ls='ls -G'
 
@@ -51,14 +55,19 @@ bindkey -v
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git tmux colored-man osx taskwarrior vi-mode svn pass)
 
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/Users/robert/bin:/Users/robert/bin/maude:/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/Users/robert/Library/Haskell/bin:/usr/local/share/python:/Users/robert/Documents/computern/android/android\ sdk/android-sdk-macosx/platform-tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin
+export PATH=/Users/robert/bin:/Users/robert/bin/maude:/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/Users/robert/Library/Haskell/bin:/usr/local/share/python:/Users/robert/Documents/computern/android/android\ sdk/android-sdk-macosx/platform-tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:$PATH
 
 export MAUDE_LIB=/Users/robert/bin/maude
+
+fortune ~/.fortunes
