@@ -1,6 +1,6 @@
 #My own stuff:
 
-snippet ar "\autoref{}" w
+snippet "\\ar" "\autoref{}" r
 \autoref{$1}
 endsnippet
 
@@ -49,6 +49,9 @@ snippet "\\m(ath)?" "\mathSOMETHING" r
 \math${1:something}{${2:${VISUAL}}}${3}
 endsnippet
 
+snippet "\\tsc" "\textsc" r
+\textsc{${1:${VISUAL}}}${2}
+endsnippet
 snippet "\\mit" "\mathit" r
 \mathit{${1:${VISUAL}}}${2}
 endsnippet
@@ -57,6 +60,9 @@ snippet "\\mrm" "\mathrm" r
 endsnippet
 snippet "\\mtt" "\mathtt" r
 \mathtt{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\msf" "\mathsf" r
+\mathsf{${1:${VISUAL}}}${2}
 endsnippet
 
 snippet pmat
