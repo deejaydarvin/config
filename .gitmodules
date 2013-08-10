@@ -43,3 +43,9 @@
 [submodule ".vim/bundle/sub-tex-9"]
 	path = .vim/bundle/sub-tex-9
 	url = https://github.com/vim-scripts/TeX-9
+[submodule ".vim/bundle/sub-tmux-navigator"]
+	path = .vim/bundle/sub-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule ".vim/bundle/vundle"]
+	path = .vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
