@@ -2,13 +2,13 @@ if filereadable("/Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim")
 	source /Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim
 endif
 
-setlocal tw=75
-setlocal iskeyword=@,48-57,_,192-255,:
+setlocal tw=70
+setlocal iskeyword+=@,:,-
 
 " substitute symbols by UTF-8 chars
 set conceallevel=2
 " but not subscripts
-g:tex_conceal="adgm"
+let g:tex_conceal="admg"
 " don't apply special syntaxhighlighting on conceal
 hi clear Conceal
 
@@ -17,9 +17,13 @@ let g:tex_comment_nospell= 1
 setlocal fo+=nt
 
 setlocal spell spelllang=en
+setlocal thesaurus+='~/.vim/thesaurus/mthesaur.txt'
+
 setlocal autowrite
 map <buffer> \m :Make<CR> 
 map <buffer> \p :make open<CR>
+nnoremap <buffer> gB ebyw:split references.bib/"
+nnoremap <buffer> gC ebyw:split commands.tex/"
 
 let g:syntastic_quiet_warnings=1
 

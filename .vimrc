@@ -21,9 +21,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'szw/vim-tags.git'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'mhinz/vim-signify.git'
-Bundle 'vim-scripts/TeX-9'
 Bundle 'christoomey/vim-tmux-navigator.git'
 Bundle 'gmarik/vundle.git'
+Bundle 'bling/vim-airline'
+Bundle 'SirVer/ultisnips'
 
 "************************************************************
 "********* Standard Stuff ***********************************
@@ -105,43 +106,18 @@ if &t_Co > 2 || has("gui_running")
 endif
 "
 set ruler
-"set rulerformat=
 
 set relativenumber
-" changes Vim’s line number column to display how far away each line is from the current one, instead of showing the absolute line number.
 set undofile
-" undofile tells Vim to create <FILENAME>.un~ files whenever you edit a file. These files contain undo information so you can undo previous actions even after you close and reopen a file.
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-   "built-in vim functions
-  augroup vimrcEx
-    autocmd!
+" Save when losing focus
+au FocusLost * :wa
 
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
+" automatically source vim sessions so I can open them with the finder
+au BufRead *.vis so %
 
-  augroup END
-endif " has("autocmd")
-
-"*************** STORE SWAP BACK AND UNDO IN BLA DIR ************
-let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-if isdirectory(expand(s:dir))
-  if &directory =~# '^\.,'
-    let &directory = expand(s:dir) . '/swap//,' . &directory
-  endif
-  if &backupdir =~# '^\.,'
-    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-  endif
-  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-    let &undodir = expand(s:dir) . '/undo//,' . &undodir
-  endif
-endif
-if exists('+undofile')
-  set undofile
-endif
+" only show 10 spell suggestions
+set spellsuggest=10
 
 
 "**************************************
@@ -168,6 +144,12 @@ let g:LustyJugglerSuppressRubyWarning = 1
 "***************************************
 "********** Ulti Snips ******
 let g:UltiSnipsEditSplit = 'horizontal'
+"
+"***************************************
+"********** Airline  ******
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
 
 "*******************************
 "***********Syntastic plugin****
@@ -192,6 +174,38 @@ set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\
 " ************************************************************
 " ******************Load dictionaries based on filetype*******
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
+set complete+=k
+
+" ********************************************************
+" ************ Always jump to last cursor position *******
+
+if has("autocmd")
+  augroup vimrcEx
+    autocmd!
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
+  augroup END
+endif " has("autocmd")
+
+"****************************************************************
+"*************** Store swap back and undo in bla dir ************
+let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+if isdirectory(expand(s:dir))
+  if &directory =~# '^\.,'
+    let &directory = expand(s:dir) . '/swap//,' . &directory
+  endif
+  if &backupdir =~# '^\.,'
+    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
+  endif
+  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
+    let &undodir = expand(s:dir) . '/undo//,' . &undodir
+  endif
+endif
+if exists('+undofile')
+  set undofile
+endif
 
 "**************************************
 "*************** Custom Keybindings ***
@@ -206,18 +220,11 @@ nnoremap <silent> \t :TlistOpen<CR>
 map <leader>s :mksession!  session.vis<CR>
 nmap <leader>ln :setlocal relativenumber!<CR>
     
-" Save when losing focus
-au FocusLost * :wa
-
-" automatically source vim sessions so I can open them with the finder
-au BufRead *.vis so %
-
-" MAC Magic
+"**************************************
+"*************** Mac specific ***
 "  anything you copy from vim by the usual vim commands (y, d, x, etc.)
 "  will be available on your system clipboard and thus pastable.
 set clipboard=unnamed
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
 
-" only show 10 spell suggestions
-set spellsuggest=10
