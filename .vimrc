@@ -27,6 +27,7 @@ Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
 
 Bundle 'bufkill.vim'
+Bundle 'vcscommand.vim'
 
 "************************************************************
 "********* Standard Stuff ***********************************
