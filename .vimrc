@@ -26,6 +26,8 @@ Bundle 'gmarik/vundle.git'
 Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
 
+Bundle 'bufkill.vim'
+
 "************************************************************
 "********* Standard Stuff ***********************************
 
