@@ -1,0 +1,25 @@
+# Automatically migrated from legacy .beetsconfig.
+
+directory: ~/Music/musik
+library: ~/Music/beetslib.blb
+
+plugins: fetchart lyrics lastgenre mpdupdate
+
+import:
+    write: true
+    #copy: true
+    move: true
+    art: true
+    log: beetslog.txt
+    languages: de,fr,en
+ignore: .AppleDouble ._* *~ .DS_Store
+
+paths:
+    default: $albumartist/$album/$track - $title
+    singleton: Non-Album/$artist/$title
+    comp: Compilations/$album/$track - $artist - title
+
+mpdupdate:
+    host: localhost
+    port: 6600
+    #password: 
