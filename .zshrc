@@ -10,25 +10,15 @@ ZSH_THEME="simple"
 #ZSH_THEME="theunraveler"
 
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias :e=vim 
+source ~/.aliases
 
-alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
-alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
-alias grep='grep --color=auto'
-
-alias bc='bc -l' #always have bc with math libraries and large scale
-alias ls='ls -G'
-
-alias t='task rc:/Users/robert/Documents/research/secure_apis/thesis/.taskrc'
 # alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
 # alias holvim='rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
 export RLWRAP_EDITOR="vi +%L"
 
 # vi mode
 bindkey -v
-bindkey -M vicmd '?' history-incremental-search-backward
+bindkey '^r' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
@@ -70,8 +60,15 @@ plugins=(git tmux colored-man osx taskwarrior vi-mode svn pass)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/robert/bin:/Users/robert/bin/maude:/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/Users/robert/Library/Haskell/bin:/usr/local/share/python:/Users/robert/Documents/computern/android/android\ sdk/android-sdk-macosx/platform-tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:$PATH
+alias vim=~/bin/vim
+export EDITOR=vim
+export PATH=/Applications/git-annex.app/Contents/MacOS/bundle:/Users/robert/Library/Haskell/bin:/usr/local/share/python:/Users/robert/Documents/computern/android/android\ sdk/android-sdk-macosx/platform-tools:/usr/local/sbin:/usr/local/bin:/Users/robert/bin:$PATH
 
-export MAUDE_LIB=/Users/robert/bin/maude
+export MAUDE_LIB=/Users/robert/bin/maudelib
 
-fortune ~/.fortunes
+__git_files () { 
+	    _wanted files expl 'local files' _files     
+	}
+
+
+#fortune ~/.fortunes
