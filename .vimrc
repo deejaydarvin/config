@@ -8,26 +8,49 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-Bundle 'sjbach/lusty'
-Bundle 'scrooloose/nerdtree.git'
+" checkout zone
+
+
+" Bundle 'sjbach/lusty'
+Bundle 'ctrlp.vim'
+" Bundle 'scrooloose/nerdtree.git'
 Bundle 'godlygeek/tabular.git'
-Bundle 'vim-scripts/taglist.vim.git'
-Bundle 'altercation/vim-colors-solarized.git'
+" Bundle 'vim-scripts/taglist.vim.git'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'edsono/vim-matchit.git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'szw/vim-tags.git'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'mhinz/vim-signify.git'
 Bundle 'christoomey/vim-tmux-navigator.git'
-Bundle 'gmarik/vundle.git'
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
+
+" Bling Bling
+Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'tomasr/molokai'
+Bundle 'jellybeans.vim'
+
+
+" helpful when coding, but I am not coding atm
+" Bundle 'tpope/vim-fugitive' "supposed to be super good with git
+" this one too: 
+" airblade/vim-gitgutter
+" Bundle 'majutsushi/tagbar.git'
+" Bundle 'mhinz/vim-signify.git'
+"
+" Maybe good for coding, not good for writing tex.
+" don't forget to run install script for this one.
+" Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'bufkill.vim'
 Bundle 'vcscommand.vim'
+
+
+"Stuff that's lying around
+Bundle 'file://~/.vim/bundle/vimpoly'
+" Bundle 'file://~/.vim/bundle/latex-parformat'
 
 "************************************************************
 "********* Standard Stuff ***********************************
@@ -41,9 +64,13 @@ set sw=4 ts=4
 " set the syntax highlighting, colors
 
 " colorscheme desert
-" colorscheme molokai
 " colorscheme ironman
-colorscheme jellybeans
+
+colorscheme molokai
+let g:airline_theme='molokai'
+
+" colorscheme jellybeans
+" let g:airline_theme='jellybeans'
 
 set scrolloff=10
 set wildmode=list:longest
@@ -61,6 +88,13 @@ set formatoptions+=1 "don't break a line after a one-letter word
 " set formatoptions+=j "joining lines removes comments
 " set formatoptions+=a "extra: autowrap
 
+" tab settings:
+set autoindent " strictly necessary but good default for plain text.
+set shiftwidth=4 " the size of a "tab"?
+set shiftround " behavior for <> and related commands
+set expandtab " behavior for <Tab> in insert mode
+set smarttab  " use spaces instead of tabs 
+
 set colorcolumn=85
 " These lines manage my line wrapping settings and also show a colored column at
 " 85 characters (so I can see when I write a too-long line of code).
@@ -74,7 +108,7 @@ nnoremap j gj
 nnoremap k gk
 
 set sidescroll=5
-set laststatus=1
+set laststatus=2
 
 set keywordprg=":help"
 
@@ -111,16 +145,26 @@ endif
 set ruler
 
 set relativenumber
+set number
 set undofile
 
 " Save when losing focus
-au FocusLost * :wa
+au FocusLost * silent! wa
 
 " automatically source vim sessions so I can open them with the finder
 au BufRead *.vis so %
 
 " only show 10 spell suggestions
 set spellsuggest=10
+
+" use comma as <Leader> key instead of backslash
+" let mapleader=","
+
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+
 
 
 "**************************************
@@ -136,13 +180,19 @@ autocmd FileType taglist setlocal norelativenumber
 "**************************************
 "*************** Nerdtree Plugin ******
 
-nnoremap <silent> \n :NERDTreeToggle<CR>
-autocmd FileType nerdtree setlocal norelativenumber
+" nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+" autocmd FileType nerdtree setlocal norelativenumber
+
+" alternative to nerdtree: netrw in tree style
+nnoremap <silent> <leader>n :Vexplore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
 
 "***************************************
-"********** Lusty Jugglyer Plugin ******
-"Suppress Warnings on old vim version
-let g:LustyJugglerSuppressRubyWarning = 1
+"********** CtrlP plugin ******
+" don't delete cache upon exit
+let g:ctrlp_clear_cache_on_exit=0
 
 "***************************************
 "********** Ulti Snips ******
@@ -152,7 +202,6 @@ let g:UltiSnipsEditSplit = 'horizontal'
 "********** Airline  ******
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='jellybeans'
 
 "*******************************
 "***********Syntastic plugin****
@@ -164,7 +213,9 @@ let g:airline_theme='jellybeans'
 " set statusline +=*%=%5l%*
 " set statusline +=/%L%*               "total lines
 
-set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\ \|\ %p%%\ \|\ LN\ %l:%c\ 
+" set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\ \|\ %p%%\ \|\ LN\ %l:%c\ 
+
+set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -172,6 +223,9 @@ set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\
 
 " let g:syntastic_error_symbol='✗'
 " let g:syntastic_warning_symbol='⚠'
+"
+" set fillchars=stl:―,stlnc:—,vert:│,fold:۰,diff:·
+
 
 
 " ************************************************************
@@ -213,11 +267,39 @@ endif
 "**************************************
 "*************** Custom Keybindings ***
 nnoremap <leader>q gqip
-map <silent> <Leader>b :LustyJuggler<CR>
-map <silent> <Leader>e :LustyFilesystemExplorer<CR>
-nmap <silent> <Leader>x :bn<CR>
-nmap <silent> <Leader>z :bp<CR>
-nnoremap <silent> \t :TlistOpen<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" map <silent> <Leader>b :LustyJuggler<CR>
+" map <silent> <Leader>e :LustyFilesystemExplorer<CR>
+map <silent> <Leader>f :CtrlP<CR>
+map <silent> <Leader>B :CtrlPBuffer<CR>
+nnoremap <leader>b :ls<CR>:b
+
+map <silent> TT :CtrlPTag<CR>
+map <silent> Tb :CtrlPBufTag<CR>
+map <silent> TB :CtrlPBufTagAll<CR>
+
+map <silent> <Leader>H :CtrlP ~/Documents/research/secure_apis/<CR>
+map <silent> <Leader>T :CtrlP ~/Documents/research/secure_apis/thesis/<CR>
+
+"gtfo
+nmap <silent> gof :!open %:h<CR>
+nmap <silent> goF :!open . <CR>
+" would like to do it for terminal, but don't know how to call iterm2..
+" nmap <silent> got :!open %:h<CR>
+
+" unimpaired plugin offers bindings, too
+" nmap <silent> <Leader>x :bn<CR>
+" nmap <silent> <Leader>z :bp<CR>
+
+" switch to alternative buffer using leader twice
+nnoremap <leader><leader> <c-^>
+
+" switch to alternative buffer using leader twice
+nnoremap <leader>d :BD<CR>
+
+" nnoremap <silent> \t :TlistOpen<CR>
 
 " save sessions with .vis extension
 map <leader>s :mksession!  session.vis<CR>
