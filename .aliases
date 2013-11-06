@@ -13,3 +13,8 @@ alias tt='task rc:/Users/robert/Documents/research/secure_apis/thesis/.taskrc'
 alias ttl='task rc:/Users/robert/Documents/research/secure_apis/thesis/.taskrc list'
 alias mpisc='ncmpcpp -c ~/.ncmpcpp/piscine'
 alias mext-pisc='ncmpcpp -c ~/.ncmpcpp/piscine-ext'
+
+alias pisync='ssh pi \~/bin/gitsync.sh'
+alias pirw='ssh pi \~/bin/mount_rw.sh'
+alias piro='ssh pi \~/bin/mount_ro.sh'
+
