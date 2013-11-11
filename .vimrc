@@ -131,7 +131,10 @@ nnoremap / /\v
 vnoremap / /\v
 set gdefault
 set showmatch
-nnoremap <leader><space> :noh<cr>
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 set hidden
 
