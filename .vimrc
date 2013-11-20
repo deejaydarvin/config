@@ -275,7 +275,8 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " map <silent> <Leader>b :LustyJuggler<CR>
 " map <silent> <Leader>e :LustyFilesystemExplorer<CR>
-map <silent> <Leader>f :CtrlP<CR>
+map <silent> <Leader>f :CtrlP .<CR>
+map <silent> <Leader>F :CtrlP<CR>
 map <silent> <Leader>B :CtrlPBuffer<CR>
 nnoremap <leader>b :ls<CR>:b
 

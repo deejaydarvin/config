@@ -10,6 +10,7 @@ LOAD_MODULES=(
 	"syntax-highlighting"
 	"notify"
     "vimtricks"
+    "vim-foreground"
 )
 LOAD_THEME="gears_plain"
 
