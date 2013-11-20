@@ -1,0 +1,85 @@
+function __git_IsRepo()
+{
+	git status &> /dev/null
+
+	if [[ $? == 128 ]]; then
+		return 1
+	else
+		return 0
+	fi
+}
+
+function __git_RepoStatus()
+{
+	local output
+
+	__git_repoStaged=$(git diff --name-only --cached | wc -l)
+	__git_repoUnstaged=$(git diff --name-only --diff-filter=M | wc -l)
+	__git_repoDeleted=$(git diff --name-only --diff-filter=D | wc -l)
+	__git_repoMoved=$(git diff --name-only --diff-filter=R | wc -l)
+	__git_repoAdded=$(git diff --name-only --diff-filter=A | wc -l)
+
+	__git_repoLeading=0
+	__git_repoTrailing=0
+
+
+	if [[ $__git_repoLeading -gt 0 ]]; then
+		output+=$THEME_ICON_AHEAD$__git_repoLeading
+	fi
+	if [[ $__git_repoTrailing -gt 0 ]]; then
+		output+=$THEME_ICON_BEHIND$__git_repoTrailing
+	fi
+	if [[ $__git_repoStaged -gt 0 ]]; then
+		output+="♦"$__git_repoStaged
+	fi
+	if [[ $__git_repoUnstaged -gt 0 ]]; then
+		output+=$THEME_ICON_CHANGED$__git_repoUnstaged
+	fi
+	if [[ $__git_repoAdded -gt 0 ]]; then
+		output +=$THEME_ICON_ADDED$__git_repoAdded
+	fi
+	if [[ $__git_repoDeleted -gt 0 ]]; then
+		output+=$THEME_ICON_REMOVED$__git_repoDeleted
+	fi
+	if [[ $__git_repoMoved -gt 0 ]]; then
+		output+="►"$__git_repoMoved
+	fi
+
+	if [[ \
+		$__git_repoStaged -eq 0 && \
+		$__git_repoUnstaged -eq 0 \
+	]]; then
+		output+=$THEME_ICON_OK
+	fi
+
+	echo " ["$output"]"
+}
+
+function __git_BranchInfo()
+{
+	output=$THEME_ICON_BRANCH
+	output+=$(git rev-parse --abbrev-ref HEAD)
+
+	echo $output
+}
+
+function __git_OnCMD()
+{
+	local output
+
+	if __git_IsRepo; then
+		output+="± "
+		output+=$(__git_BranchInfo)
+		output+=$(__git_RepoStatus)
+	fi
+
+	__theme_AddLeft "extras" $output
+}
+
+function __git_OnPWD()
+{
+	__git_OnCMD
+}
+
+__theme_Hook "OnCMD" "__git_OnCMD"
+__theme_Hook "OnPWD" "__git_OnPWD"

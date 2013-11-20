@@ -1,0 +1,10 @@
+export RLWRAP_EDITOR="vi +%L"
+
+# vi mode
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
+bindkey -M viins '\C-i' complete-word
