@@ -11,6 +11,8 @@ LOAD_MODULES=(
 	"notify"
     "vimtricks"
     "vim-foreground"
+    "zman"
+    "autopushd"
 )
 LOAD_THEME="gears_plain"
 
