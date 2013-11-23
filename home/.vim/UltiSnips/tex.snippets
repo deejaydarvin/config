@@ -1,0 +1,78 @@
+#My own stuff:
+
+snippet "\\ar" "\autoref{}" r
+\autoref{$1}
+endsnippet
+
+snippet def
+\begin{definition}[${1:definition name}] %{{{ 
+\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
+${3}
+% definition $2 (end)
+\end{definition}%}}}
+endsnippet
+
+snippet inpara
+\begin{inparaenum}[\itshape a\upshape)]
+\item ${1}
+\end{inparaenum}
+endsnippet
+
+snippet fig
+\begin{figure}[h] %{{{fig
+\centering
+${3:${VISUAL}}
+\caption{ ${1:figure caption} }
+\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
+% figure $2 (end)
+\end{figure} %}}}
+endsnippet
+
+snippet _ "_{}" i
+_{${1}}${2}
+endsnippet
+
+snippet ^ "^{}" i
+^{${1}}${2}
+endsnippet
+
+snippet stackrel 
+\stackrel{${1}}{${2:\longrightarrow}}${3}
+endsnippet
+
+
+snippet "\\t(ext)?" "\textSOMETHING{}" r
+\text${1:something}{${2:${VISUAL}}}${3}
+endsnippet
+
+snippet "\\m(ath)?" "\mathSOMETHING" r
+\math${1:something}{${2:${VISUAL}}}${3}
+endsnippet
+
+snippet "\\tsc" "\textsc" r
+\textsc{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mit" "\mathit" r
+\mathit{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mrm" "\mathrm" r
+\mathrm{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mtt" "\mathtt" r
+\mathtt{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\msf" "\mathsf" r
+\mathsf{${1:${VISUAL}}}${2}
+endsnippet
+
+snippet pmat
+\begin{pmatrix}
+${1:${VISUAL}}
+\end{pmatrix}$2
+endsnippet
+
+snippet rob
+\robert{${1:${VISUAL}}}${2}
+endsnippet
+
+# vim:ft=snippets:
