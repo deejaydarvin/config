@@ -1,6 +1,0 @@
-/Users/robert/Music/klassik/%z/%b/%n - %t
-/Users/robert/Music/musik/%a/%b/%n - %t
-/Users/robert/Music/musik/%z/%b/%n - %t
-/Users/robert/Music/klassik/%z/%b/%n - %a - %t
-/Users/robert/Music/musik/Compilations/%b/%n - %a - %t
-/Users/robert/Music/musik/%z/%b/%n - %a - %t

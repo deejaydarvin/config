@@ -1,0 +1,30 @@
+# Automatically migrated from legacy .beetsconfig.
+
+directory: ~/Music/musik
+library: ~/Music/beetslib.blb
+
+plugins: fetchart lyrics lastgenre info discogs beatport
+    #unused
+    # mpdupdate #mpd checks the dir itself
+
+import:
+    write: true
+    #copy: true
+    move: true
+    art: true
+    log: beetslog.txt
+    languages: de,fr,en
+ignore: .AppleDouble ._* *~ .DS_Store
+
+paths:
+    default: $albumartist/$album/$track - $title
+    singleton: $artist/$title
+    comp: Compilations/$album/$track - $artist - $title
+    albumtype:soundtrack: Compilations/$album/$track - $artist - $title
+        #Turns out that sometimes soundtracks are not compilations, although
+        #they have more than one artist.
+
+# mpdupdate:
+#     host: localhost
+#     port: 6600
+    #password: 

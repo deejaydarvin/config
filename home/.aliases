@@ -1,0 +1,22 @@
+if [[ `uname` == "Darwin" ]]; then 
+    alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
+    alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
+else echo no; fi
+
+FILE="$HOME/.alias-hostspecific" && test -f $FILE && source $FILE
+
+alias :e=vim 
+alias grep='grep --color=auto'
+alias bc='bc -l' #always have bc with math libraries and large scale
+alias ls='ls -G'
+
+# alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
+# alias holvim='rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
+export RLWRAP_EDITOR="vi +%L"
+
+alias pisync='ssh pi \~/bin/gitsync.sh'
+alias pirw='ssh pi \~/bin/mount_rw.sh'
+alias piro='ssh pi \~/bin/mount_ro.sh'
+
+alias mpisc='ncmpcpp -c ~/.ncmpcpp/piscine'
+alias mext-pisc='ncmpcpp -c ~/.ncmpcpp/piscine-ext'
