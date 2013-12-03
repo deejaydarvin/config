@@ -18,7 +18,8 @@ dateformat.edit=d/m/Y H:N:S
 dateformat.holiday=YMD
 dateformat.info=d/m/Y H:N:S
 dateformat.report=d/m/Y
-include /usr/local/share/doc/task/rc/holidays.fr-FR.rc
+include ~/.task/holidays.de-DE.rc
+include ~/.task/dark-green-256.theme
 
 weekstart=Monday
 
@@ -28,14 +29,15 @@ report.list.labels=ID,Project,Pri,Sched,Due,Recur,Tags,Description & Annotation
 
 
 # Color theme (uncomment one to use)
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/light-16.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/light-256.theme
-include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-16.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-256.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-red-256.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-green-256.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-blue-256.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-violets-256.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/local/Cellar/task/2.2.0/share/doc/task/rc/dark-gray-256.theme
-
+# /usr/share/doc/task/rc/dark-16.theme
+# /usr/share/doc/task/rc/dark-256.theme
+# /usr/share/doc/task/rc/dark-blue-256.theme
+# /usr/share/doc/task/rc/dark-gray-256.theme
+# include /usr/share/doc/task/rc/dark-green-256.theme
+# /usr/share/doc/task/rc/dark-red-256.theme
+# /usr/share/doc/task/rc/dark-violets-256.theme
+# /usr/share/doc/task/rc/dark-yellow-green.theme
+# /usr/share/doc/task/rc/light-16.theme
+# /usr/share/doc/task/rc/light-256.theme
+# /usr/share/doc/task/rc/solarized-dark-256.theme
+# /usr/share/doc/task/rc/solarized-light-256.theme
