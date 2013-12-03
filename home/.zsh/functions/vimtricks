@@ -2,9 +2,27 @@ export RLWRAP_EDITOR="vi +%L"
 
 # vi mode
 bindkey -v
+
+#be able to delete previous word -- more like vim
+bindkey "^?" backward-delete-char
+bindkey "^W" backward-kill-word 
+bindkey "^H" backward-delete-char      # Control-h also deletes the previous char
+bindkey "^U" kill-line
+
+
+## 10ms for key sequences
+KEYTIMEOUT=1
+
+#fix behaviour of escape in command mode so it is bound
+#side effect: escape reacts right away in insert mode
+bindkey -sM vicmd '^[' '^G'
+
+#allow Ctrl-i for completition
+bindkey -M viins '\C-i' complete-word 
+
+#keys for history search
 bindkey '^r' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-bindkey -M viins '\C-i' complete-word
