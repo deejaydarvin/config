@@ -1,3 +1,6 @@
+#folder where I put autocompletition functions
+fpath=($HOME/.zsh/completition $fpath)
+
 autoload -U compinit && compinit												# Enable autocompletion
 autoload -U predict-on && predict-on
 
