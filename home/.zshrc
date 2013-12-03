@@ -14,6 +14,7 @@ LOAD_MODULES=(
     "zman"
     "autopushd"
     "homeshick"
+    "pass.zsh-completion"
 )
 LOAD_THEME="gears_plain"
 
