@@ -1,6 +1,0 @@
-Feb 13 14:58 : state_file: failed to open /Users/robert/.mpd_ext/mpd.state: No such file or directory
-Feb 13 14:58 : client: failed to read from client 0: Connection reset by peer
-Feb 13 15:23 : client: failed to read from client 1: Connection reset by peer
-Feb 13 15:28 : player_thread: played "musik/goodbooks/control/01 - beautiful to watch.mp3"
-Feb 13 16:45 : player_thread: played "musik/goodbooks/control/04 - the curse of saul.mp3"
-Feb 13 16:49 : player_thread: played "musik/goodbooks/control/05 - alice.mp3"
