@@ -5,8 +5,6 @@
 LOAD_MODULES=(
 	"setup"
 	"autocompletion"
-    "_pass"
-    "_task"
 	"history"
 	"git"
 	"syntax-highlighting"
