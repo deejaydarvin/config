@@ -1,7 +1,7 @@
 # commands to ignore
-cmdignore=(vim top htop)
+cmdignore=(vim top htop alpine sup-mail man less sup zathura)
 
-time=10
+time=30
  
 # end and compare timer, notify-send if needed
 function notifyosd-precmd() {

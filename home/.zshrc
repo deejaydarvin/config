@@ -5,6 +5,8 @@
 LOAD_MODULES=(
 	"setup"
 	"autocompletion"
+    "_pass"
+    "_task"
 	"history"
 	"git"
 	"syntax-highlighting"
@@ -14,6 +16,7 @@ LOAD_MODULES=(
     "zman"
     "autopushd"
     "homeshick"
+    "task"
 )
 LOAD_THEME="gears_plain"
 

@@ -66,11 +66,11 @@ set sw=4 ts=4
 " colorscheme desert
 " colorscheme ironman
 
-colorscheme molokai
-let g:airline_theme='molokai'
+" colorscheme molokai
+" let g:airline_theme='molokai'
 
-" colorscheme jellybeans
-" let g:airline_theme='jellybeans'
+colorscheme jellybeans
+let g:airline_theme='jellybeans'
 
 set scrolloff=10
 set wildmode=list:longest

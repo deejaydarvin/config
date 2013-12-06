@@ -19,9 +19,14 @@ dateformat.holiday=YMD
 dateformat.info=d/m/Y H:N:S
 dateformat.report=d/m/Y
 include ~/.task/holidays.de-DE.rc
-include ~/.task/dark-green-256.theme
+# include ~/.task/dark-green-256.theme
+include ~/.task/jellybeans-256.theme
 
 weekstart=Monday
+
+report.ls.description=Lists all tasks matching the specified criteria (short)
+report.ls.columns=id,tags,project,priority,due,description
+report.ls.labels=ID,tags,Project,Pri,Due,Description & Annotation
 
 report.list.description=Lists all tasks matching the specified criteria
 report.list.columns=id,project,priority,scheduled,due,recur,tags,description

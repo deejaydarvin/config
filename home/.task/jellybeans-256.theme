@@ -1,0 +1,48 @@
+###############################################################################
+
+color=on
+color.header=green
+color.footnote=green
+color.debug=green
+
+color.summary.bar=white on green
+color.summary.background=white on color0
+
+color.history.add=color0 on rgb010
+color.history.done=color0 on rgb030
+color.history.delete=color0 on rgb050
+
+color.burndown.pending=on red
+color.burndown.started=on yellow
+color.burndown.done=on green
+
+color.sync.added=gray4
+color.sync.changed=rgb030
+color.sync.rejected=rgb010
+
+color.undo.before=green
+color.undo.after=rgb053
+
+color.calendar.today=underline bold black on white
+color.calendar.due=green
+color.calendar.due.today=underline bold yellow on white
+color.calendar.overdue=white on red
+color.calendar.weekend=on color235
+color.calendar.holiday=on cyan
+color.calendar.weeknumber=yellow
+
+color.recurring=rgb151
+color.overdue=red
+color.due.today=yellow
+color.due=green
+color.active=inverse 
+color.pri.none=
+color.pri.H=rgb050
+color.pri.M=rgb030
+color.pri.L=rgb010
+color.tagged=color246
+color.blocked=color08
+color.project.none=
+color.tag.none=
+color.alternate=on color233
+
