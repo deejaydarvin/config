@@ -3,7 +3,7 @@ if [[ `uname` == "Darwin" ]]; then
     alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
 else echo no; fi
 
-FILE="$HOME/.alias-hostspecific" && test -f $FILE && source $FILE
+FILE="$HOME/.aliases-hostspecific" && test -f $FILE && source $FILE
 
 alias :e=vim 
 alias grep='grep --color=auto'
