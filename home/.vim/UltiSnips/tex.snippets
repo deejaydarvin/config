@@ -4,6 +4,14 @@ snippet "\\ar" "\autoref{}" r
 \autoref{$1}
 endsnippet
 
+snippet newcommand
+\newcommand{$1}{$2}
+endsnippet
+
+snippet ensure "ensure" w
+\ensuremath{$1}\xspace
+endsnippet
+
 snippet def
 \begin{definition}[${1:definition name}] %{{{ 
 \label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
@@ -36,6 +44,10 @@ snippet ^ "^{}" i
 ^{${1}}${2}
 endsnippet
 
+snippet \i 
+\item 
+endsnippet
+
 snippet stackrel 
 \stackrel{${1}}{${2:\longrightarrow}}${3}
 endsnippet
@@ -51,6 +63,9 @@ endsnippet
 
 snippet "\\tsc" "\textsc" r
 \textsc{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\tt" "\texttt" r
+\texttt{${1:${VISUAL}}}${2}
 endsnippet
 snippet "\\mit" "\mathit" r
 \mathit{${1:${VISUAL}}}${2}

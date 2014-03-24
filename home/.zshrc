@@ -15,6 +15,7 @@ LOAD_MODULES=(
     "autopushd"
     "homeshick"
     "task"
+    "fasd"
 )
 LOAD_THEME="gears_plain"
 
