@@ -27,6 +27,7 @@ Bundle 'szw/vim-tags.git'
 Bundle 'christoomey/vim-tmux-navigator.git'
 " Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 
 "see if this sets commentstring, otherwise kickout
 Bundle 'jrk/vim-ocaml'
