@@ -49,6 +49,9 @@ snippet "\\m(ath)?" "\mathSOMETHING" r
 \math${1:something}{${2:${VISUAL}}}${3}
 endsnippet
 
+snippet "\\ttt" "\texttt" r
+\texttt{${1:${VISUAL}}}${2}
+endsnippet
 snippet "\\tsc" "\textsc" r
 \textsc{${1:${VISUAL}}}${2}
 endsnippet
@@ -73,6 +76,36 @@ endsnippet
 
 snippet rob
 \robert{${1:${VISUAL}}}${2}
+endsnippet
+
+# Templates!
+snippet letter
+\documentclass[geschaeftsbrief]{scrlttr2}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\begin{document}
+\setkomavar{subject}{${1}}
+
+\begin{letter} {${2:Address}}
+
+\LoadLetterOption{DINmtext}
+
+\opening{Sehr geehrte${3},}
+
+${4}
+
+\closing{Mit freundlichen Grüßen${5},}
+% \vskip -18mm
+% 	\includegraphics[height=10mm]{material/signature.png}
+
+% \renewcaptionname{ngerman}{\enclname}{Anlagen}
+% \renewcaptionname{english}{\enclname}{Attached}
+% \encl{ Bla }
+\end{letter}
+% \includepdf[scale=1,pages=1-3]{file.pdf}
+\end{document}
 endsnippet
 
 # vim:ft=snippets:

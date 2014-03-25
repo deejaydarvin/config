@@ -6,7 +6,6 @@ LOAD_MODULES=(
 	"setup"
 	"autocompletion"
 	"history"
-	"git"
 	"syntax-highlighting"
 	"notify"
     "vimtricks"
@@ -16,6 +15,7 @@ LOAD_MODULES=(
     "homeshick"
     "task"
 )
+	#"git"
 LOAD_THEME="gears_plain"
 
 #### Do not change anything after this file

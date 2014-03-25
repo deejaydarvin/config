@@ -278,10 +278,10 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " map <silent> <Leader>b :LustyJuggler<CR>
 " map <silent> <Leader>e :LustyFilesystemExplorer<CR>
-map <silent> <Leader>f :CtrlP .<CR>
-map <silent> <Leader>F :CtrlP<CR>
-map <silent> <Leader>B :CtrlPBuffer<CR>
-nnoremap <leader>b :ls<CR>:b
+map <silent> <Leader>F :CtrlP .<CR>
+map <silent> <Leader>f :CtrlP<CR>
+map <silent> <Leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>b :ls<CR>:b
 
 map <silent> TT :CtrlPTag<CR>
 map <silent> Tb :CtrlPBufTag<CR>
@@ -303,7 +303,7 @@ nmap <silent> goF :!open . <CR>
 " switch to alternative buffer using leader twice
 nnoremap <leader><leader> <c-^>
 
-" switch to alternative buffer using leader twice
+" delecte current buffer
 nnoremap <leader>d :BD<CR>
 
 " nnoremap <silent> \t :TlistOpen<CR>
