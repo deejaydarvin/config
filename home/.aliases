@@ -12,6 +12,7 @@ alias ls='ls -G'
 
 # alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
 # alias holvim='rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
+alias ocamli='rlwrap ocaml'
 export RLWRAP_EDITOR="vi +%L"
 
 alias pisync='ssh pi \~/bin/gitsync.sh'

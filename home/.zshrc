@@ -14,6 +14,7 @@ LOAD_MODULES=(
     "autopushd"
     "homeshick"
     "task"
+    "fasd"
 )
 	#"git"
 LOAD_THEME="gears_plain"

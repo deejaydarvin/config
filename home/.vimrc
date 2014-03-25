@@ -11,7 +11,6 @@ Bundle 'gmarik/vundle'
 " checkout zone
 
 
-" Bundle 'sjbach/lusty'
 Bundle 'ctrlp.vim'
 " Bundle 'scrooloose/nerdtree.git'
 Bundle 'godlygeek/tabular.git'
@@ -23,10 +22,15 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'edsono/vim-matchit.git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vinegar'
 Bundle 'szw/vim-tags.git'
 Bundle 'christoomey/vim-tmux-navigator.git'
 " Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
+"see if this sets commentstring, otherwise kickout
+Bundle 'jrk/vim-ocaml'
 
 " Bling Bling
 Bundle 'altercation/vim-colors-solarized.git'
@@ -163,9 +167,6 @@ au BufRead *.vis so %
 " only show 10 spell suggestions
 set spellsuggest=10
 
-" use comma as <Leader> key instead of backslash
-" let mapleader=","
-
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -175,7 +176,16 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 "**************************************
 "*************** Tag List plugin ******
-let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n" "Mac options here
+        let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+    else
+        if s:uname == "Linux\n"
+        let Tlist_Ctags_Cmd="ctags"
+        endif
+    endif
+endif
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
 
@@ -271,6 +281,10 @@ if exists('+undofile')
 endif
 
 "**************************************
+"*************** Spell choices for mail
+let g:spell_choices = "en,de,fr"
+
+"**************************************
 "*************** Custom Keybindings ***
 nnoremap <leader>q gqip
 let g:ctrlp_map = '<c-p>'
@@ -281,6 +295,8 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 map <silent> <Leader>F :CtrlP .<CR>
 map <silent> <Leader>f :CtrlP<CR>
 map <silent> <Leader>b :CtrlPBuffer<CR>
+
+" smaller alternative
 " nnoremap <leader>b :ls<CR>:b
 
 map <silent> TT :CtrlPTag<CR>
@@ -291,32 +307,26 @@ map <silent> <Leader>H :CtrlP ~/Documents/research/secure_apis/<CR>
 map <silent> <Leader>T :CtrlP ~/Documents/research/secure_apis/thesis/<CR>
 
 "gtfo
-nmap <silent> gof :!open %:h<CR>
-nmap <silent> goF :!open . <CR>
+nmap <silent> gof :!xdg-open %:h<CR>
+nmap <silent> god :!xdg-open . <CR>
 " would like to do it for terminal, but don't know how to call iterm2..
 " nmap <silent> got :!open %:h<CR>
 
-" unimpaired plugin offers bindings, too
-" nmap <silent> <Leader>x :bn<CR>
-" nmap <silent> <Leader>z :bp<CR>
-
-" switch to alternative buffer using leader twice
+" switch to alternative buffer using leader twice and delete buffers
 nnoremap <leader><leader> <c-^>
-
 " delecte current buffer
 nnoremap <leader>d :BD<CR>
+
+" play macro in q .. (normally Q is ex mode)
+map Q @q
 
 " nnoremap <silent> \t :TlistOpen<CR>
 
 " save sessions with .vis extension
 map <leader>s :mksession!  session.vis<CR>
-nmap <leader>ln :setlocal relativenumber!<CR>
     
 "**************************************
 "*************** Mac specific ***
-"  anything you copy from vim by the usual vim commands (y, d, x, etc.)
-"  will be available on your system clipboard and thus pastable.
-set clipboard=unnamed
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
 
