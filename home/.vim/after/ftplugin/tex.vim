@@ -32,6 +32,6 @@ if filereadable('Makefile')
   setlocal makeprg=make
 else
 		" does not work with filenames that contain spaces	
-  " exec "setlocal makeprg=make\\ -f\\ ~/src/latex.mk\\ " . substitute(bufname("%"),"tex$","pdf", "")
+  " exec "setlocal makeprg=rubber\\ -d\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 

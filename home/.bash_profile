@@ -6,6 +6,8 @@ alias t='task rc:/Users/robert/Documents/research/secure_apis/thesis/.taskrc'
 ########## TAB COMPLETITION           ######################
 ############################################################
 
+source ~/.aliases
+
 #tab completition for taks warrior
 source /usr/local/share/doc/task/scripts/bash/task.sh
 

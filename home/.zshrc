@@ -6,7 +6,6 @@ LOAD_MODULES=(
 	"setup"
 	"autocompletion"
 	"history"
-	# "git"
 	"syntax-highlighting"
 	"notify"
     "vimtricks"
