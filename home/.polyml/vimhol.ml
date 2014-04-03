@@ -1,6 +1,6 @@
 (* val () = PolyML.print_depth 0; *)
 local
-  val fifoPath = "/Users/robert/.polyml/vim_fifo"
+  val fifoPath = "/home/robert/.polyml/vim_fifo" (* "~/.polyml/vim_fifo"*)
   structure Queue :> (* Modified from http://mlton.org/MLtonThread *)
      sig
         type 'a t

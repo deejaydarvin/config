@@ -1,5 +1,5 @@
 # commands to ignore
-cmdignore=(vim top htop alpine sup-mail man less sup zathura fg)
+cmdignore=(vim top htop alpine sup-mail man less sup zathura fg v zless polyvim zsh holvim)
 
 time=30
  
