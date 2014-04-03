@@ -6,7 +6,7 @@ LOAD_MODULES=(
 	"setup"
 	"autocompletion"
 	"history"
-	"git"
+	# "git"
 	"syntax-highlighting"
 	"notify"
     "vimtricks"
@@ -17,7 +17,8 @@ LOAD_MODULES=(
     "task"
     "fasd"
 )
-LOAD_THEME="gears_plain"
+# LOAD_THEME="gears_plain"
+LOAD_THEME="pure"
 
 #### Do not change anything after this file
 
