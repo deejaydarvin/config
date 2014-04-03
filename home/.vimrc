@@ -15,6 +15,7 @@ Bundle 'ctrlp.vim'
 " Bundle 'scrooloose/nerdtree.git'
 Bundle 'godlygeek/tabular.git'
 " Bundle 'vim-scripts/taglist.vim.git'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-dispatch.git'
@@ -37,9 +38,9 @@ Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai'
 Bundle 'jellybeans.vim'
 
+Bundle 'tpope/vim-fugitive' 
 
 " helpful when coding, but I am not coding atm
-" Bundle 'tpope/vim-fugitive' "supposed to be super good with git
 " this one too: 
 " airblade/vim-gitgutter
 " Bundle 'majutsushi/tagbar.git'
@@ -60,14 +61,6 @@ Bundle 'file://~/.vim/bundle/vimpoly'
 "************************************************************
 "********* Standard Stuff ***********************************
 
-filetype plugin on
-filetype indent on
-
-set nocompatible
-
-set sw=4 ts=4
-" set the syntax highlighting, colors
-
 " colorscheme desert
 " colorscheme ironman
 
@@ -80,9 +73,10 @@ let g:airline_theme='jellybeans'
 set scrolloff=10
 set wildmode=list:longest
 
-set noerrorbells
-set novisualbell
-set t_vb=
+" todo: see if this can be removed
+" set noerrorbells
+" set novisualbell
+" set t_vb=
 
 set wrap
 set lbr "line break: don't break middle of a word
@@ -94,28 +88,19 @@ set formatoptions+=1 "don't break a line after a one-letter word
 " set formatoptions+=a "extra: autowrap
 
 " tab settings:
-set autoindent " strictly necessary but good default for plain text.
 set shiftwidth=4 " the size of a "tab"?
-set shiftround " behavior for <> and related commands
 set expandtab " behavior for <Tab> in insert mode
-set smarttab  " use spaces instead of tabs 
 
 set colorcolumn=85
-" These lines manage my line wrapping settings and also show a colored column at
-" 85 characters (so I can see when I write a too-long line of code).
+" marking after 85 chars to see overly long lines
 
 " See :help fo-table and the Vimcasts on soft wrapping and hard wrapping for
 " more information.
 
-set backspace=indent,eol,start
-
 nnoremap j gj
 nnoremap k gk
 
-set sidescroll=5
-set laststatus=2
-
-set keywordprg=":help"
+set keywordprg=":help" " could be set to man, too
 
 "remember marks
 set viminfo='100,f1
@@ -128,35 +113,20 @@ set nowb
 
 " search stuff
 set history=250    " keep 50 lines of command line history
-set showcmd    " display incomplete commands
-set incsearch    " do incremental searching
 set ignorecase
 set smartcase
 nnoremap / /\v
 vnoremap / /\v
 set gdefault
 set showmatch
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
 
 set hidden
 
 set switchbuf=useopen,usetab
 
-if &t_Co > 2 || has("gui_running")
-" Switch syntax highlighting on, when the terminal has colors
-  syntax on
-" Also switch on highlighting the last used search pattern.
-  set hlsearch
-endif
-"
-set ruler
 
 set relativenumber
 set number
-set undofile
 
 " Save when losing focus
 au FocusLost * silent! wa
@@ -170,8 +140,6 @@ set spellsuggest=10
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-
 
 
 "**************************************
