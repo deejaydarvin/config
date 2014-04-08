@@ -33,6 +33,10 @@ Bundle 'honza/vim-snippets'
 "see if this sets commentstring, otherwise kickout
 Bundle 'jrk/vim-ocaml'
 
+"read-eval-print loops
+Bundle 'oplatek/Conque-Shell'
+Bundle 'tarruda/vim-conque-repl' 
+
 " Bling Bling
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai'
@@ -74,9 +78,9 @@ set scrolloff=10
 set wildmode=list:longest
 
 " todo: see if this can be removed
-" set noerrorbells
-" set novisualbell
-" set t_vb=
+set noerrorbells
+set novisualbell
+set t_vb=
 
 set wrap
 set lbr "line break: don't break middle of a word
@@ -124,9 +128,8 @@ set hidden
 
 set switchbuf=useopen,usetab
 
-
-set relativenumber
 set number
+set relativenumber
 
 " Save when losing focus
 au FocusLost * silent! wa
