@@ -4,6 +4,14 @@ endif
 
 setlocal tw=70
 setlocal iskeyword+=@,:,-
+" Try this out sometime
+" http://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/
+" augroup latexsettings
+"     autocmd!
+"     autocmd FileType tex autocmd InsertLeave <buffer> :set iskeyword-=/
+"     autocmd FileType tex autocmd InsertEnter <buffer> :set iskeyword+=/
+" augroup END
+
 
 " substitute symbols by UTF-8 chars
 set conceallevel=2
