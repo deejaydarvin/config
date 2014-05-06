@@ -5,7 +5,7 @@ if has("unix")
         " set guifont= Menlo\ For\ Powerline:h11
     else
         if s:uname == "Linux\n"
-            set guifont=Inconsolata\ Medium\ 11
+            set guifont=Terminus\ 10,\ Mensch\ 11,\ Inconsolata\ Medium\ 11,\ DejaVu\ Sans\ Mono\ 10,\ DejaVu\ Sans\ Mono\ 10
         endif
     endif
 endif
