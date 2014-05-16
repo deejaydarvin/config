@@ -59,7 +59,6 @@ Bundle 'vcscommand.vim'
 
 
 "Stuff that's lying around
-Bundle 'file://~/.vim/bundle/vimpoly'
 " Bundle 'file://~/.vim/bundle/latex-parformat'
 
 "************************************************************

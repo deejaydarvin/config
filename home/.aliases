@@ -13,7 +13,7 @@ alias bc='bc -l' #always have bc with math libraries and large scale
 alias ls='ls -G'
 
 alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
-alias holvim='rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
+alias holvim='TERM=xterm rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
 alias ocamli='rlwrap ocaml'
 export RLWRAP_EDITOR="vi +%L"
 
@@ -24,3 +24,4 @@ alias piro='ssh pi \~/bin/mount_ro.sh'
 alias mpisc='ncmpcpp -c ~/.ncmpcpp/piscine'
 alias mext-pisc='ncmpcpp -c ~/.ncmpcpp/piscine-ext'
 
+alias tmux='tmux -2'
