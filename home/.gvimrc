@@ -1,4 +1,5 @@
 set go-=T
+set go-=m
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin\n" "Mac options here
