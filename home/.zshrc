@@ -52,3 +52,5 @@ OnLoad
 
 unset LOAD_MODULES
 unset LOAD_THEME
+
+# vim:set path=~/.zsh/functions/

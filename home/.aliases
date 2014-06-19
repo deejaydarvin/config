@@ -11,6 +11,7 @@ alias :e=vim
 alias grep='grep --color=auto'
 alias bc='bc -l' #always have bc with math libraries and large scale
 alias ls='ls -G'
+alias info='info --vi-keys'
 
 alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
 alias holvim='TERM=xterm rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'

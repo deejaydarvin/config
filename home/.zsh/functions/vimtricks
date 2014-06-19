@@ -22,7 +22,10 @@ bindkey -M viins '\C-i' complete-word
 
 #keys for history search
 bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-search-backward
+
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
-
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history
