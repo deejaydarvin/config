@@ -12,6 +12,7 @@ import:
     #copy: true
     move: true
     art: true
+    timid: true
     log: beetslog.txt
     languages: de,fr,en
 ignore: .AppleDouble ._* *~ .DS_Store

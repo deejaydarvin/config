@@ -12,25 +12,32 @@
 
 # Files
 
+default.due=today
+default.command=next
+
 dateformat=d/m/Y
 dateformat.annotation=d/m/Y
 dateformat.edit=d/m/Y H:N:S
-dateformat.holiday=YMD
 dateformat.info=d/m/Y H:N:S
-dateformat.report=d/m/Y
+dateformat.report=a d.m.Y
+
+dateformat.holiday=YMD
 include ~/.task/holidays.de-DE.rc
+
 # include ~/.task/dark-green-256.theme
 include ~/.task/jellybeans-256.theme
 
 weekstart=Monday
 
-report.ls.description=Lists all tasks matching the specified criteria (short)
-report.ls.columns=id,tags,project,priority,due,description
-report.ls.labels=ID,tags,Project,Pri,Due,Description & Annotation
+report.next.dateformat=a
+report.next.description=Lists all tasks matching the specified criteria (short)
+report.next.columns=id,tags,project,priority,due,description
+report.next.labels=ID,tags,Project,Pri,Due,Description & Annotation
 
+report.list.dateformat=a, D.M.Y
 report.list.description=Lists all tasks matching the specified criteria
-report.list.columns=id,project,priority,scheduled,due,recur,tags,description
-report.list.labels=ID,Project,Pri,Sched,Due,Recur,Tags,Description & Annotation
+report.list.columns=id,project,urgency,priority,depends,scheduled,due,recur,tags,description
+report.list.labels=ID,Project,Urg,Pri,Dep,Sched,Due,Recur,Tags,Description & Annotation
 
 
 # Color theme (uncomment one to use)
