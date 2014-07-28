@@ -1,1 +1,1 @@
-use "/home/kuennemann/src/HOL/tools/vim/vimhol.sml"
+use "/home/robert/.polyml/vimhol.ml"

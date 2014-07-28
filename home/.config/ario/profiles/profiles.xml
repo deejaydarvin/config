@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <ario-profiles>
   <profile host="localhost" port="6600" timeout="5000" musicdir="/Users/robert/Music" local="true" type="0">Default</profile>
-  <profile host="192.168.0.222" port="6600" timeout="5000" current="true" type="0">piscine</profile>
+  <profile host="192.168.2.222" port="6600" timeout="5000" current="true" type="0">piscine</profile>
 </ario-profiles>

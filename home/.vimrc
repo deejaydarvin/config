@@ -25,13 +25,15 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vinegar'
 Bundle 'szw/vim-tags.git'
-Bundle 'christoomey/vim-tmux-navigator.git'
+" tmux navigator uses C-L keybinding, which we want for nohl.
+" also requires tmux >v1.8
+" Bundle 'christoomey/vim-tmux-navigator.git'
 " Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 "see if this sets commentstring, otherwise kickout
-Bundle 'jrk/vim-ocaml'
+" Bundle 'jrk/vim-ocaml'
 
 "read-eval-print loops
 Bundle 'oplatek/Conque-Shell'
@@ -55,11 +57,8 @@ Bundle 'tpope/vim-fugitive'
 " Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'bufkill.vim'
-Bundle 'vcscommand.vim'
-
 
 "Stuff that's lying around
-Bundle 'file://~/.vim/bundle/vimpoly'
 " Bundle 'file://~/.vim/bundle/latex-parformat'
 
 "************************************************************
@@ -172,7 +171,7 @@ autocmd FileType taglist setlocal norelativenumber
 
 " alternative to nerdtree: netrw in tree style
 nnoremap <silent> <leader>n :Vexplore<CR>
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 0
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
@@ -261,8 +260,6 @@ nnoremap <leader>q gqip
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" map <silent> <Leader>b :LustyJuggler<CR>
-" map <silent> <Leader>e :LustyFilesystemExplorer<CR>
 map <silent> <Leader>F :CtrlP .<CR>
 map <silent> <Leader>f :CtrlP<CR>
 map <silent> <Leader>b :CtrlPBuffer<CR>
@@ -274,8 +271,7 @@ map <silent> TT :CtrlPTag<CR>
 map <silent> Tb :CtrlPBufTag<CR>
 map <silent> TB :CtrlPBufTagAll<CR>
 
-map <silent> <Leader>H :CtrlP ~/Documents/research/secure_apis/<CR>
-map <silent> <Leader>T :CtrlP ~/Documents/research/secure_apis/thesis/<CR>
+map <silent> <Leader>R :CtrlP ~/Documents/research/<CR>
 
 "gtfo
 nmap <silent> gof :!xdg-open %:h<CR>

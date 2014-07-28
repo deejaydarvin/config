@@ -1,11 +1,11 @@
-" if exists("b:did_hol")
-"   finish
-" endif
+if exists("b:did_hol")
+  finish
+endif
 
-let maplocalleader = "\\"
-
-let s:holpipe = "/Users/robert/.polyml/vim_fifo"
+let s:holpipe = "/home/robert/.polyml/vim_fifo"
+let s:holpipe = "~/.polyml/vim_fifo"
 let s:tmpprefix = "/tmp/vimhol"
+let s:holtogglequiet = "val _ = HOL_Interactive.toggle_quietdec();"
 
 new
 set buftype=nofile
@@ -14,6 +14,7 @@ set noswapfile
 let s:holnr = bufnr("")
 hide
 
+let s:tmpprefix = "/tmp/vimhol"
 fu! TempName()
   let l:n = 0
   while glob(s:tmpprefix.l:n) != ""
@@ -106,7 +107,7 @@ let s:delim          = '\_[[:space:]()]'
 
 fu! HOLExpand()
   silent keepjumps normal pgg0
-  while search('\%^\_s*\%(\%('.s:stripBoth.'\|'.s:stripStart.'\)\|\%('.s:stripBothWords.'\)\ze'.s:delim.'\)','cWe')
+  while search('\%^\_s*\%(\%('.s:stripBoth.'\|'.s:stripStart.'\)\|\%('.s:stripBothWords.'\)\)\ze'.s:delim,'cWe')
     silent keepjumps normal vgg0"_d
   endw
   while search('\%(\%('.s:stripBoth.'\|'.s:stripEnd.'\)\|'.s:delim.'\zs\%('.s:stripBothWords.'\)\)\_s*\%$','cW')
@@ -173,10 +174,36 @@ fu! HOLSelect(l,r)
   call search(a:r,"ce")
 endf
 
+if !(exists("maplocalleader"))
+  let maplocalleader = "h"
+endif
+vn <silent> <LocalLeader>l :call YankThenHOLCall(function("HOLLoadSendQuiet"),[])<CR>
+vn <silent> <LocalLeader>L :call YankThenHOLCall(function("HOLLoad"),[])<CR>
 vn <silent> <LocalLeader>s :call YankThenHOLCall(function("HOLSend"),[])<CR>
-nm <expr> <silent> <LocalLeader>s "V".maplocalleader."s"
+vn <silent> <LocalLeader>u :call YankThenHOLCall(function("HOLSendQuiet"),[])<CR>
+vn <silent> <LocalLeader>g :call YankThenHOLCall(function("HOLGoal"),[])<CR>
+vn <silent> <LocalLeader>e :call YankThenHOLCall(function("HOLExpand"),[])<CR>
+vn <silent> <LocalLeader>S :call YankThenHOLCall(function("HOLSubgoal"),[])<CR>
+nm <silent><expr> <LocalLeader>l "V".maplocalleader."l"
+nm <silent><expr> <LocalLeader>L "V".maplocalleader."L"
+nm <silent><expr> <LocalLeader>s "V".maplocalleader."s"
+nm <silent><expr> <LocalLeader>u "V".maplocalleader."u"
+nm <silent><expr> <LocalLeader>g "V".maplocalleader."g"
+nm <silent><expr> <LocalLeader>e "V".maplocalleader."e"
+nm <silent><expr> <LocalLeader>S "V".maplocalleader."S"
+nn <silent> <LocalLeader>R :<C-U>call HOLRotate()<CR>
+nn <silent> <LocalLeader>b :<C-U>call HOLRepeat("proofManagerLib.backup();")<CR>
+nn <silent> <LocalLeader>B :<C-U>call HOLRepeat("proofManagerLib.restore();")<CR>
+nn <silent> <LocalLeader>v :call HOLCall(function("HOLF"),["proofManagerLib.save()"])<CR>
+nn <silent> <LocalLeader>d :<C-U>call HOLRepeat("proofManagerLib.drop();")<CR>
+nn <silent> <LocalLeader>p :call HOLCall(function("HOLF"),["proofManagerLib.p()"])<CR>
+nn <silent> <LocalLeader>r :call HOLCall(function("HOLF"),["proofManagerLib.restart()"])<CR>
 nn <silent> <LocalLeader>c :call HOLINT()<CR>
+nn <silent> <LocalLeader>t :call HOLSelect("`","`")<CR>
+nn <silent> <LocalLeader>T :call HOLSelect("``","``")<CR>
+nn <silent> <LocalLeader>j :call HOLCall(function("HOLF"),["Globals.show_types:=not(!Globals.show_types)"])<CR>
+nn <silent> <LocalLeader>n :call HOLCall(function("HOLF"),["Feedback.set_trace \"Unicode\" (1 - Feedback.current_trace \"Unicode\")"])<CR>
+no <LocalLeader>h h
 
 let b:did_hol = 1
-
 " vim: ft=vim
