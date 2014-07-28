@@ -7,17 +7,25 @@ LOAD_MODULES=(
 	"autocompletion"
 	"history"
 	"syntax-highlighting"
-	"notify"
-    "vimtricks"
     "vim-foreground"
+    "vimtricks"
     "zman"
     "autopushd"
     "homeshick"
     "task"
     "fasd"
 )
+
+# OS Specific choices...
+if [[ `uname` == "Darwin" ]]; then 
+    # something
+else 
+    LOAD_MODULES+=( "notify")
+fi
+
+
 # LOAD_THEME="gears_plain"
-LOAD_THEME="pure"
+LOAD_THEME="pure-vim"
 
 #### Do not change anything after this file
 

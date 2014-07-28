@@ -1,9 +1,13 @@
 if [[ `uname` == "Darwin" ]]; then 
     alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
     alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
+    alias xdg-open=open
 else 
     alias open=xdg-open
 fi
+
+alias today="task add due:today"
+alias tomorrow="task add due:tomorrow"
 
 FILE="$HOME/.aliases-hostspecific" && test -f $FILE && source $FILE
 
