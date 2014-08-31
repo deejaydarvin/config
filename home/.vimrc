@@ -20,6 +20,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-eunuch'
 Bundle 'edsono/vim-matchit.git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
@@ -43,6 +44,8 @@ Bundle 'tarruda/vim-conque-repl'
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai'
 Bundle 'jellybeans.vim'
+
+Bundle 'deejaydarvin/vim-spelllangcheck'
 
 Bundle 'tpope/vim-fugitive' 
 
@@ -118,8 +121,6 @@ set nowb
 set history=250    " keep 50 lines of command line history
 set ignorecase
 set smartcase
-nnoremap / /\v
-vnoremap / /\v
 set gdefault
 set showmatch
 
@@ -283,6 +284,9 @@ nmap <silent> god :!xdg-open . <CR>
 nnoremap <leader><leader> <c-^>
 " delecte current buffer
 nnoremap <leader>d :BD<CR>
+
+" let Y behave like C and D
+nnoremap Y y$
 
 " play macro in q .. (normally Q is ex mode)
 map Q @q

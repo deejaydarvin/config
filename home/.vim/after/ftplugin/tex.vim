@@ -24,7 +24,9 @@ let g:tex_comment_nospell= 1
 
 setlocal fo+=nt
 
-setlocal spell spelllang=en
+setlocal spell
+autocmd! InsertLeave % :SetSpelllang
+
 setlocal thesaurus+='~/.vim/thesaurus/mthesaur.txt'
 
 setlocal autowrite
