@@ -3,14 +3,12 @@ if filereadable("/Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim")
 endif
 
 setlocal tw=70
-setlocal iskeyword+=@,:,-
-" Try this out sometime
+let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@'
+" setlocal iskeyword+=@:-
+" Wasn't too helpful.
 " http://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/
-" augroup latexsettings
-"     autocmd!
-"     autocmd FileType tex autocmd InsertLeave <buffer> :set iskeyword-=/
-"     autocmd FileType tex autocmd InsertEnter <buffer> :set iskeyword+=/
-" augroup END
+" autocmd InsertLeave <buffer> :set iskeyword-=/:@-
+" autocmd InsertEnter <buffer> :set iskeyword+=/:@-
 
 
 " substitute symbols by UTF-8 chars
