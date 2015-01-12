@@ -2,15 +2,15 @@
 fpath=($HOME/.zsh/completition $fpath)
 
 autoload -U compinit && compinit												# Enable autocompletion
-autoload -U predict-on && predict-on
+# autoload -U predict-on && predict-on
 
-zle -N predict-on
-zle -N predict-off
-zstyle ':predict' verbose true
-zstyle ':predict' toggle true
-bindkey '^X1' predict-on
-bindkey '^X2' predict-off
-setopt correct
+# zle -N predict-on
+# zle -N predict-off
+# zstyle ':predict' verbose true
+# zstyle ':predict' toggle true
+# bindkey '^X1' predict-on
+# bindkey '^X2' predict-off
+# setopt correct
 
 zle -N insert-last-assignment smart-insert-last-word
 zstyle ':completion:*' menu select												# Menu based autocompletion

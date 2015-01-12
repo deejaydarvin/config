@@ -16,8 +16,6 @@ bindkey ' ' magic-space # also do history expansion on space
 
 bindkey '^[[Z' reverse-menu-complete
 
-
-
 # Don't know what this does... yet
 # typeset -A key
 # 

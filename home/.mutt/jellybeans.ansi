@@ -1,0 +1,113 @@
+# Theme kindly inspired from Zenburn
+# Only really jellbeans.vim clone if you use my Xresources
+#
+
+## # Colour definitions when on a mono screen # ##
+
+#mono bold bold
+#mono underline underline
+#mono indicator reverse
+#mono index bold ~U
+#mono index bold ~N
+#mono index bold ~F
+#mono index bold ~T
+#mono index bold ~D
+
+## Highlights inside the body of a message.
+
+#mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+#mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+## # Color Sidebar # ##
+
+## Default color definitions
+color attachment magenta default
+color bold brightblue default
+color hdrdefault green default
+color indicator brightwhite color237
+# color markers yellow default
+color markers yellow default
+color message white default
+color normal white default
+color quoted magenta default
+color search brightgreen default
+color signature blue default
+color status black yellow
+color tilde brightyellow default
+color tree brightmagenta default
+color underline brightmagenta default
+color error red default
+
+# Colours for items in the index
+color index white default ~A
+color index default default ~R
+#color index magenta default ~O
+color index brightgreen default ~N
+color index brightmagenta default ~F
+color index brightred default ~T
+color index brightyellow default ~U
+color index red default ~D
+
+## Highlights inside the body of a message.
+
+# URLs
+color body brightblue default "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightblue default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+# Email addresses.
+color body brightyellow default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Header
+color header green default "^from:"
+color header cyan default "^to:"
+color header cyan default "^cc:"
+color header blue default "^date:"
+color header blue default "^tags:"
+color header yellow default "^newsgroups:"
+color header yellow default "^reply-to:"
+color header white default "^subject:"
+color header red default "^x-spam-rule:"
+color header green default "^x-mailer:"
+color header yellow default "^message-id:"
+color header yellow default "^Organization:"
+color header yellow default "^Organisation:"
+color header yellow default "^User-Agent:"
+color header yellow default "^message-id: .*pine"
+color header yellow default "^X-Fnord:"
+color header yellow default "^X-WebTV-Stationery:"
+color header red default "^x-spam-rule:"
+color header green default "^x-mailer:"
+color header yellow default "^message-id:"
+color header yellow default "^Organization:"
+color header yellow default "^Organisation:"
+color header yellow default "^User-Agent:"
+color header yellow default "^message-id: .*pine"
+color header yellow default "^X-Fnord:"
+color header yellow default "^X-WebTV-Stationery:"
+color header yellow default "^X-Message-Flag:"
+color header yellow default "^X-Spam-Status:"
+color header yellow default "^X-SpamProbe:"
+color header red default "^X-SpamProbe: SPAM"
+
+# Coloring quoted text - coloring the first 7 levels:
+color quoted0 color255 default
+color quoted1 color251 default
+color quoted2 color247 default
+color quoted3 color243 default
+color quoted4 color255 default
+color quoted5 color251 default
+color quoted6 color247 default
+color quoted7 color243 default
+color quoted8 green default
+color quoted9 brightcyan default
+# GPG Stuff
+# I can never get this fracking GPG regex's to work
+# Please fork and send a pull request
+#
+color body green default "gpg: Good signature"
+color body red default "gpg: BAD signature"
+color body red default "gpg: Can't check signature"
+
+## Sidebar Patch
+color sidebar_new brightyellow default
+

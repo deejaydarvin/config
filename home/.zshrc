@@ -14,11 +14,13 @@ LOAD_MODULES=(
     "homeshick"
     "task"
     "fasd"
+    # "gpg-agent" not needed with mac os at least.
 )
 
 # OS Specific choices...
 if [[ `uname` == "Darwin" ]]; then 
-    # something
+    # OPAM configuration
+    source /Users/robert/.opam/opam-init/init.zsh
 else 
     LOAD_MODULES+=( "notify")
 fi

@@ -83,6 +83,10 @@ snippet "\\msf" "\mathsf" r
 \mathsf{${1:${VISUAL}}}${2}
 endsnippet
 
+snippet "\\left" "\leftarrow" r
+\leftarrow
+endsnippet
+
 snippet pmat
 \begin{pmatrix}
 ${1:${VISUAL}}
@@ -92,6 +96,16 @@ endsnippet
 
 snippet rob
 \robert{${1:${VISUAL}}}${2}
+endsnippet
+
+snippet mini
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[c][6cm][c]{.5\textwidth}
+${1:${VISUAL}}
+\end{minipage}\hfill
+\begin{minipage}[c][6cm][c]{.5\textwidth}
+\end{minipage}%
+\end{minipage}
 endsnippet
 
 # Templates!

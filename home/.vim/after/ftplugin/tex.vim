@@ -43,3 +43,5 @@ else
   " exec "setlocal makeprg=rubber\\ -d\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 
+"new: latexbox plugin
+let g:LatexBox_Folding=1

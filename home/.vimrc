@@ -3,7 +3,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -17,7 +17,6 @@ Bundle 'godlygeek/tabular.git'
 " Bundle 'vim-scripts/taglist.vim.git'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-eunuch'
@@ -33,6 +32,8 @@ Bundle 'szw/vim-tags.git'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
+Bundle 'rking/ag.vim'
+
 "see if this sets commentstring, otherwise kickout
 " Bundle 'jrk/vim-ocaml'
 
@@ -45,7 +46,10 @@ Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai'
 Bundle 'jellybeans.vim'
 
-Bundle 'deejaydarvin/vim-spelllangcheck'
+Bundle 'file:///Users/robert/doc/computern/vim-spelllangcheck'
+
+" I want bibtex completition, but I could not get it running.
+" Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 Bundle 'tpope/vim-fugitive' 
 
@@ -58,8 +62,6 @@ Bundle 'tpope/vim-fugitive'
 " Maybe good for coding, not good for writing tex.
 " don't forget to run install script for this one.
 " Bundle 'Valloric/YouCompleteMe'
-
-Bundle 'bufkill.vim'
 
 "Stuff that's lying around
 " Bundle 'file://~/.vim/bundle/latex-parformat'
@@ -180,6 +182,16 @@ let g:netrw_altv = 1
 "********** CtrlP plugin ******
 " don't delete cache upon exit
 let g:ctrlp_clear_cache_on_exit=0
+
+" speed up by using ag, the silver searcher
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 "***************************************
 "********** Ulti Snips ******

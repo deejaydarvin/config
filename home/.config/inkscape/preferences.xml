@@ -133,8 +133,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="301.59320068359375"
-         height="400.416259765625"
+         width="313.8768310546875"
+         height="209.44137573242188"
          rx="0"
          ry="0" />
       <eventcontext
@@ -928,6 +928,12 @@
        allowrelativecoordinates="1"
        forcerepeatcommands="0" />
     <group
+       id="externalresources">
+      <group
+         id="xml"
+         allow_net_access="0" />
+    </group>
+    <group
        id="forkgradientvectors"
        value="1" />
     <group
@@ -984,10 +990,10 @@
      id="desktop"
      style="fill:#ffffff;font-weight:normal;-inkscape-font-specification:Sans;font-size:64px;text-anchor:start;text-align:start;opacity:1;fill-opacity:1;font-family:Sans;font-style:normal;font-stretch:normal;font-variant:normal;writing-mode:lr;line-height:125%;stroke:#000000;stroke-opacity:1;stroke-width:7.70000000000000018;stroke-miterlimit:4;stroke-dasharray:none">
     <group
-       width="1024"
-       height="696"
-       x="74"
-       y="13"
+       width="1569"
+       height="1287"
+       x="80"
+       y="0"
        fullscreen="0"
        id="geometry"
        maximized="0" />
