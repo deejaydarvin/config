@@ -312,4 +312,3 @@ map <leader>s :mksession!  session.vis<CR>
 "*************** Mac specific ***
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
-
