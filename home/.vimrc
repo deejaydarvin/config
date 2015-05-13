@@ -3,68 +3,68 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " checkout zone
 
 
-Bundle 'ctrlp.vim'
-" Bundle 'scrooloose/nerdtree.git'
-Bundle 'godlygeek/tabular.git'
-" Bundle 'vim-scripts/taglist.vim.git'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-dispatch.git'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-eunuch'
-Bundle 'edsono/vim-matchit.git'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-vinegar'
-Bundle 'szw/vim-tags.git'
+Plugin 'ctrlp.vim'
+" Plugin 'scrooloose/nerdtree.git'
+Plugin 'godlygeek/tabular.git'
+" Plugin 'vim-scripts/taglist.vim.git'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch.git'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-eunuch'
+Plugin 'edsono/vim-matchit.git'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'szw/vim-tags.git'
 " tmux navigator uses C-L keybinding, which we want for nohl.
 " also requires tmux >v1.8
-" Bundle 'christoomey/vim-tmux-navigator.git'
-" Bundle 'bling/vim-airline'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+" Plugin 'christoomey/vim-tmux-navigator.git'
+" Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
-Bundle 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 
-"see if this sets commentstring, otherwise kickout
-" Bundle 'jrk/vim-ocaml'
+" Syntax check on LaTeX and more
+Plugin 'scrooloose/syntastic'
 
 "read-eval-print loops
-Bundle 'oplatek/Conque-Shell'
-Bundle 'tarruda/vim-conque-repl' 
+Plugin 'oplatek/Conque-Shell'
+Plugin 'tarruda/vim-conque-repl' 
 
 " Bling Bling
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'tomasr/molokai'
-Bundle 'jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'tomasr/molokai'
+Plugin 'jellybeans.vim'
 
-Bundle 'file:///Users/robert/doc/computern/vim-spelllangcheck'
+Plugin 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
 " I want bibtex completition, but I could not get it running.
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
-Bundle 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-fugitive' 
 
 " helpful when coding, but I am not coding atm
 " this one too: 
 " airblade/vim-gitgutter
-" Bundle 'majutsushi/tagbar.git'
-" Bundle 'mhinz/vim-signify.git'
+" Plugin 'majutsushi/tagbar.git'
+" Plugin 'mhinz/vim-signify.git'
 "
 " Maybe good for coding, not good for writing tex.
 " don't forget to run install script for this one.
-" Bundle 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 "Stuff that's lying around
-" Bundle 'file://~/.vim/bundle/latex-parformat'
+" Plugin 'file://~/.vim/bundle/latex-parformat'
 
 "************************************************************
 "********* Standard Stuff ***********************************
@@ -125,6 +125,7 @@ set ignorecase
 set smartcase
 set gdefault
 set showmatch
+set hlsearch
 
 set hidden
 
@@ -196,7 +197,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "***************************************
 "********** Ulti Snips ******
 let g:UltiSnipsEditSplit = 'horizontal'
-"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 "***************************************
 "********** Airline  ******
 let g:UltiSnipsEditSplit = 'horizontal'
@@ -215,13 +219,13 @@ let g:airline_powerline_fonts = 1
 " set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\ \|\ %p%%\ \|\ LN\ %l:%c\ 
 
 set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
 "
 " set fillchars=stl:―,stlnc:—,vert:│,fold:۰,diff:·
 
