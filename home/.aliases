@@ -32,3 +32,6 @@ alias mext-pisc='ncmpcpp -c ~/.ncmpcpp/piscine-ext'
 alias tmux='tmux -2'
 
 alias speedtest='curl -o /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+
+alias einkauf='task rc:~/.task-einkauf/taskrc'
+alias kauf='einkauf add proj:rewe'
