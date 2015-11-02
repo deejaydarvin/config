@@ -6,7 +6,7 @@ else
     alias open=xdg-open
 fi
 
-export PATH=~/bin:$PATH
+export PATH=$PATH:~/bin
 
 FILE="$HOME/.aliases-hostspecific" && test -f $FILE && source $FILE
 
