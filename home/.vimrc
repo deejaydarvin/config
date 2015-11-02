@@ -131,8 +131,8 @@ set hidden
 
 set switchbuf=useopen,usetab
 
-set number
-set relativenumber
+" set number
+" set relativenumber
 
 " Save when losing focus
 au FocusLost * silent! wa
