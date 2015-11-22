@@ -53,7 +53,7 @@ syn match sapicConstr           "\<symmetric-encryption"
 syn match sapicConstr           "\<asymmetric-encryption"
 syn match sapicConstr           "\<multiset"
 
-syn keyword sapicDecl           axiom lemma equations functions builtins protocol property in let theory begin end subsection section text predicates
+syn keyword sapicDecl           axiom lemma equations functions builtins protocol property in let theory begin end subsection section text predicates options
 syn match sapicDecl             "\<exists-trace"
 syn match sapicDecl             "\<all-traces"
 syn match sapicDecl             "\<enable"

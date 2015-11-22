@@ -6,10 +6,11 @@ else
     alias open=xdg-open
 fi
 
-alias today="task add due:today"
-alias tomorrow="task add due:tomorrow"
+export PATH=$PATH:~/bin
 
 FILE="$HOME/.aliases-hostspecific" && test -f $FILE && source $FILE
+
+
 
 alias :e=vim 
 alias grep='grep --color=auto'
@@ -32,3 +33,17 @@ alias mext-pisc='ncmpcpp -c ~/.ncmpcpp/piscine-ext'
 alias tmux='tmux -2'
 
 alias speedtest='curl -o /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+
+alias today="task add due:today"
+alias tomorrow="task add due:tomorrow"
+
+alias worktodo='task add +work'
+alias work='task +work ls'
+
+alias hometodo='task add +home'
+alias home='task +home ls'
+
+alias einkauf='task rc:~/.task-einkauf/taskrc'
+alias kauf='einkauf add proj:rewe'
+
+alias bantschow='mutt -H .mail/templates/bantschow.mail/cur/1445938465.11423_5.pc-kuennemann:2,S'

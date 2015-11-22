@@ -13,8 +13,7 @@ snippet ensure "ensure" w
 endsnippet
 
 snippet def
-\begin{definition}[${1:definition name}] %{{{ 
-\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
+\begin{definition}[${1:definition name}]\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}} %{{{ 
 ${3}
 % definition $2 (end)
 \end{definition}%}}}

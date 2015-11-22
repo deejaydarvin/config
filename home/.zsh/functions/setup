@@ -3,7 +3,7 @@ source ~/.aliases
 
 # Customize to your needs...
 export EDITOR=vim
-export PATH=$PATH:~/.cabal/bin
+export PATH=$PATH:~/.local/bin:~/.cabal/bin
 
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
