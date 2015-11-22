@@ -3,68 +3,71 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+"auto-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
-call vundle#rc()
-Plugin 'gmarik/vundle'
-
+call plug#begin('~/.vim/plugged')
 " checkout zone
 
-
-Plugin 'ctrlp.vim'
-" Plugin 'scrooloose/nerdtree.git'
-Plugin 'godlygeek/tabular.git'
-" Plugin 'vim-scripts/taglist.vim.git'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch.git'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-eunuch'
-Plugin 'edsono/vim-matchit.git'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'szw/vim-tags.git'
+Plug 'ctrlp.vim'
+" Plug 'scrooloose/nerdtree.git'
+Plug 'godlygeek/tabular.git'
+" Plug 'vim-scripts/taglist.vim.git'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch.git'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'edsono/vim-matchit.git'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'szw/vim-tags.git'
 " tmux navigator uses C-L keybinding, which we want for nohl.
 " also requires tmux >v1.8
-" Plugin 'christoomey/vim-tmux-navigator.git'
-" Plugin 'bling/vim-airline'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plug 'christoomey/vim-tmux-navigator.git'
+" Plug 'bling/vim-airline'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 " Syntax check on LaTeX and more
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 "read-eval-print loops
-Plugin 'oplatek/Conque-Shell'
-Plugin 'tarruda/vim-conque-repl' 
+Plug 'oplatek/Conque-Shell'
+Plug 'tarruda/vim-conque-repl' 
 
 " Bling Bling
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'tomasr/molokai'
-Plugin 'jellybeans.vim'
+Plug 'altercation/vim-colors-solarized.git'
+Plug 'tomasr/molokai'
+Plug 'jellybeans.vim'
 
-Plugin 'file:///Users/robert/doc/computern/vim-spelllangcheck'
+Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
 " I want bibtex completition, but I could not get it running.
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
 
-Plugin 'tpope/vim-fugitive' 
+Plug 'tpope/vim-fugitive' 
 
 " helpful when coding, but I am not coding atm
 " this one too: 
 " airblade/vim-gitgutter
-" Plugin 'majutsushi/tagbar.git'
-" Plugin 'mhinz/vim-signify.git'
+" Plug 'majutsushi/tagbar.git'
+" Plug 'mhinz/vim-signify.git'
 "
 " Maybe good for coding, not good for writing tex.
 " don't forget to run install script for this one.
-" Plugin 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 "Stuff that's lying around
-" Plugin 'file://~/.vim/bundle/latex-parformat'
+" Plug 'file://~/.vim/bundle/latex-parformat'
+
+call plug#end()
 
 "************************************************************
 "********* Standard Stuff ***********************************
