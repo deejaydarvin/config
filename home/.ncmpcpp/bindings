@@ -174,9 +174,13 @@
 #
 #def_key "home"
 #  move_home
+# def_key "g"
+#   move_home
 #
 #def_key "end"
 #  move_end
+# def_key "G"
+#   move_end
 #
 #def_key "space"
 #  press_space
