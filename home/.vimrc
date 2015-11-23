@@ -14,18 +14,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlp.vim'
 " Plug 'scrooloose/nerdtree.git'
-Plug 'godlygeek/tabular.git'
+Plug 'godlygeek/tabular'
 " Plug 'vim-scripts/taglist.vim.git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch.git'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'edsono/vim-matchit.git'
+Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'szw/vim-tags.git'
+Plug 'szw/vim-tags'
 " tmux navigator uses C-L keybinding, which we want for nohl.
 " also requires tmux >v1.8
 " Plug 'christoomey/vim-tmux-navigator.git'
@@ -43,7 +43,7 @@ Plug 'oplatek/Conque-Shell'
 Plug 'tarruda/vim-conque-repl' 
 
 " Bling Bling
-Plug 'altercation/vim-colors-solarized.git'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'jellybeans.vim'
 
