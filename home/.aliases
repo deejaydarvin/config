@@ -7,6 +7,10 @@ else
 fi
 
 export PATH=$PATH:~/bin
+export EDITOR=vim
+
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
 
 FILE="$HOME/.aliases-hostspecific" && test -f $FILE && source $FILE
 
