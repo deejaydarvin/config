@@ -20,6 +20,11 @@ bindkey -sM vicmd '^[' '^G'
 #allow Ctrl-i for completition
 bindkey -M viins '\C-i' complete-word 
 
+#open command line in vim using Esc-v
+export VISUAL=vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 #keys for history search
 bindkey '^r' history-incremental-search-backward
 bindkey '^R' history-incremental-pattern-search-backward
