@@ -13,34 +13,30 @@ call plug#begin('~/.vim/plugged')
 " checkout zone
 
 Plug 'ctrlp.vim'
-" Plug 'scrooloose/nerdtree.git'
 Plug 'godlygeek/tabular'
-" Plug 'vim-scripts/taglist.vim.git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive' 
 Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'szw/vim-tags'
-" tmux navigator uses C-L keybinding, which we want for nohl.
-" also requires tmux >v1.8
-" Plug 'christoomey/vim-tmux-navigator.git'
-" Plug 'bling/vim-airline'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
 Plug 'rking/ag.vim'
 
-" Syntax check on LaTeX and more
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
 
-"read-eval-print loops
 Plug 'oplatek/Conque-Shell'
-Plug 'tarruda/vim-conque-repl' 
+Plug 'tarruda/vim-conque-repl' "read-eval-print loops
+
+" Mail writing.
+Plug 'dbeniamine/vim-mail'
+Plug 'chrisbra/CheckAttach'
 
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
@@ -49,20 +45,26 @@ Plug 'jellybeans.vim'
 
 Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
-" I want bibtex completition, but I could not get it running.
+" deactivated Plugins
+" Latex
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
+" I want bibtex completition, but I could not get it running.
 
-Plug 'tpope/vim-fugitive' 
-
-" helpful when coding, but I am not coding atm
-" this one too: 
-" airblade/vim-gitgutter
+" Coding.
 " Plug 'majutsushi/tagbar.git'
 " Plug 'mhinz/vim-signify.git'
+" Plug 'scrooloose/nerdtree.git'
+" Plug 'vim-scripts/taglist.vim.git'
 "
 " Maybe good for coding, not good for writing tex.
 " don't forget to run install script for this one.
 " Plug 'Valloric/YouCompleteMe'
+
+" Other
+" Plug 'christoomey/vim-tmux-navigator.git'
+" tmux navigator uses C-L keybinding, which we want for nohl.
+" also requires tmux >v1.8
+" Plug 'bling/vim-airline'
 
 "Stuff that's lying around
 " Plug 'file://~/.vim/bundle/latex-parformat'
