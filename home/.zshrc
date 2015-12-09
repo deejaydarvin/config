@@ -14,6 +14,7 @@ LOAD_MODULES=(
     "homeshick"
     "task"
     "fasd"
+    "fzf"
     # "gpg-agent" not needed with mac os at least.
 )
 
