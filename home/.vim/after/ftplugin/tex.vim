@@ -3,7 +3,7 @@ if filereadable("/Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim")
 endif
 
 setlocal tw=70
-let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@'
+let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@,\'
 " setlocal iskeyword+=@:-
 " Wasn't too helpful.
 " http://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/

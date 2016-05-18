@@ -24,10 +24,13 @@ Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'szw/vim-tags'
+" Plug 'szw/vim-tags'
+ Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
+
+Plug 'wellle/targets.vim'
 
 Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
 
@@ -38,6 +41,9 @@ Plug 'tarruda/vim-conque-repl' "read-eval-print loops
 Plug 'dbeniamine/vim-mail'
 Plug 'chrisbra/CheckAttach'
 
+" TeX
+Plug 'lervag/vimtex'
+
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
@@ -45,20 +51,12 @@ Plug 'jellybeans.vim'
 
 Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
-" deactivated Plugins
-" Latex
-" Plug 'LaTeX-Box-Team/LaTeX-Box'
-" I want bibtex completition, but I could not get it running.
-
 " Coding.
 " Plug 'majutsushi/tagbar.git'
 " Plug 'mhinz/vim-signify.git'
 " Plug 'scrooloose/nerdtree.git'
-" Plug 'vim-scripts/taglist.vim.git'
+" Plug 'vim-scripts/taglist.vim'
 "
-" Maybe good for coding, not good for writing tex.
-" don't forget to run install script for this one.
-" Plug 'Valloric/YouCompleteMe'
 
 " Other
 " Plug 'christoomey/vim-tmux-navigator.git'
@@ -68,9 +66,10 @@ Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
 "Stuff that's lying around
 " Plug 'file://~/.vim/bundle/latex-parformat'
+" Plug 'unblevable/quick-scope'
 
 call plug#end()
-
+"
 "************************************************************
 "********* Standard Stuff ***********************************
 
@@ -275,7 +274,8 @@ endif
 "**************************************
 "*************** Spell choices for mail
 let g:spell_choices = "en,de,fr"
-
+"*************** keywords for attachments
+let g:attach_check_keywords =',anbei,angehangen,attaché,attachée'
 "**************************************
 "*************** Custom Keybindings ***
 nnoremap <leader>q gqip
