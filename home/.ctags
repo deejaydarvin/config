@@ -15,5 +15,6 @@
 --regex-latex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
 --regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
 --regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
+--regex-latex=/^\\begin\{framedFigure\}\{[^}]*\}\{([^}]*)\}/\1/l,label/
 --regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
 
