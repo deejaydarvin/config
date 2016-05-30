@@ -7,8 +7,8 @@ let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@,\'
 " setlocal iskeyword+=@:-
 " Wasn't too helpful.
 " http://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/
-" autocmd InsertLeave <buffer> :set iskeyword-=/:@-
-" autocmd InsertEnter <buffer> :set iskeyword+=/:@-
+" autocmd InsertEnter <buffer> :set iskeyword+="\\"
+" autocmd InsertLeave <buffer> :set iskeyword-="\\"
 
 
 " substitute symbols by UTF-8 chars
@@ -43,5 +43,10 @@ else
   " exec "setlocal makeprg=rubber\\ -d\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 
+" folding by \iffullversion etc.
+set fdm=expr
+set foldexpr=getline(v:lnum-1)=~'\\\\if\\\|\\\\else'?'>1':(getline(v:lnum+1)=~'\\\\fi\\\|\\\\else'?'<1':-1)
+
 "new: latexbox plugin
-let g:LatexBox_Folding=1
+" let g:LatexBox_Folding=1
+
