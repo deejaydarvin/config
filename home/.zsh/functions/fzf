@@ -25,6 +25,8 @@ fi
 # - $FZF_COMPLETION_TRIGGER (default: '**')
 # - $FZF_COMPLETION_OPTS    (default: empty)
 
+FZF_TMUX=0
+
 __fzf_generic_path_completion() {
   local base lbuf find_opts fzf_opts suffix tail fzf dir leftover matches nnm
   # (Q) flag removes a quoting level: "foo\ bar" => "foo bar"
