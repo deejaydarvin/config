@@ -109,5 +109,5 @@ color body red default "gpg: BAD signature"
 color body red default "gpg: Can't check signature"
 
 ## Sidebar Patch
-color sidebar_new brightyellow default
+color sidebar_new default default
 

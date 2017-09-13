@@ -2,9 +2,13 @@ if exists("b:did_hol")
   finish
 endif
 
-let s:holpipe = "/home/robert/.polyml/vim_fifo"
-let s:holpipe = "~/.polyml/vim_fifo"
-let s:tmpprefix = "/tmp/vimhol"
+let s:defaultholpipe = "/home/robert/.polyml/vim_fifo" 
+" \"/Users/robert/src/HOL/tools/vim/fifo"
+if empty($VIMHOL_FIFO)
+  let s:holpipe = s:defaultholpipe
+else
+  let s:holpipe = $VIMHOL_FIFO
+endif
 let s:holtogglequiet = "val _ = HOL_Interactive.toggle_quietdec();"
 
 new
@@ -118,12 +122,21 @@ fu! HOLExpand()
 endf
 
 fu! HOLSubgoal()
-  keepjumps normal iproofManagerLib.expand(
+  keepjumps normal iproofManagerLib.expand(bossLib.sg(
   silent normal p
   if search(s:delim.'by'.s:delim.'\_.*','cW')
     silent keepjumps normal vG$"_d
   en
-  silent keepjumps normal G$a by ALL_TAC)
+  silent keepjumps normal G$a))
+endf
+
+fu! HOLSuffices()
+  keepjumps normal iproofManagerLib.expand(bossLib.qsuff_tac(
+  silent normal p
+  if search(s:delim.'suffices_by'.s:delim.'\_.*','cW')
+    silent keepjumps normal vG$"_d
+  en
+  silent keepjumps normal G$a))
 endf
 
 fu! HOLF(f)
@@ -175,7 +188,7 @@ fu! HOLSelect(l,r)
 endf
 
 if !(exists("maplocalleader"))
-  let maplocalleader = "h"
+  let maplocalleader = "\\"
 endif
 vn <silent> <LocalLeader>l :call YankThenHOLCall(function("HOLLoadSendQuiet"),[])<CR>
 vn <silent> <LocalLeader>L :call YankThenHOLCall(function("HOLLoad"),[])<CR>
@@ -184,6 +197,7 @@ vn <silent> <LocalLeader>u :call YankThenHOLCall(function("HOLSendQuiet"),[])<CR
 vn <silent> <LocalLeader>g :call YankThenHOLCall(function("HOLGoal"),[])<CR>
 vn <silent> <LocalLeader>e :call YankThenHOLCall(function("HOLExpand"),[])<CR>
 vn <silent> <LocalLeader>S :call YankThenHOLCall(function("HOLSubgoal"),[])<CR>
+vn <silent> <LocalLeader>F :call YankThenHOLCall(function("HOLSuffices"),[])<CR>
 nm <silent><expr> <LocalLeader>l "V".maplocalleader."l"
 nm <silent><expr> <LocalLeader>L "V".maplocalleader."L"
 nm <silent><expr> <LocalLeader>s "V".maplocalleader."s"
@@ -191,6 +205,7 @@ nm <silent><expr> <LocalLeader>u "V".maplocalleader."u"
 nm <silent><expr> <LocalLeader>g "V".maplocalleader."g"
 nm <silent><expr> <LocalLeader>e "V".maplocalleader."e"
 nm <silent><expr> <LocalLeader>S "V".maplocalleader."S"
+nm <silent><expr> <LocalLeader>F "V".maplocalleader."F"
 nn <silent> <LocalLeader>R :<C-U>call HOLRotate()<CR>
 nn <silent> <LocalLeader>b :<C-U>call HOLRepeat("proofManagerLib.backup();")<CR>
 nn <silent> <LocalLeader>B :<C-U>call HOLRepeat("proofManagerLib.restore();")<CR>
@@ -199,10 +214,10 @@ nn <silent> <LocalLeader>d :<C-U>call HOLRepeat("proofManagerLib.drop();")<CR>
 nn <silent> <LocalLeader>p :call HOLCall(function("HOLF"),["proofManagerLib.p()"])<CR>
 nn <silent> <LocalLeader>r :call HOLCall(function("HOLF"),["proofManagerLib.restart()"])<CR>
 nn <silent> <LocalLeader>c :call HOLINT()<CR>
-nn <silent> <LocalLeader>t :call HOLSelect("`","`")<CR>
-nn <silent> <LocalLeader>T :call HOLSelect("``","``")<CR>
+nn <silent> <LocalLeader>t :call HOLSelect('`\\|‘','`\\|’')<CR>
+nn <silent> <LocalLeader>T :call HOLSelect('``\\|“','``\\|”')<CR>
 nn <silent> <LocalLeader>j :call HOLCall(function("HOLF"),["Globals.show_types:=not(!Globals.show_types)"])<CR>
-nn <silent> <LocalLeader>n :call HOLCall(function("HOLF"),["Feedback.set_trace \"Unicode\" (1 - Feedback.current_trace \"Unicode\")"])<CR>
+nn <silent> <LocalLeader>n :call HOLCall(function("HOLF"),["Feedback.set_trace \"PP.avoid_unicode\" (1 - Feedback.current_trace \"PP.avoid_unicode\")"])<CR>
 no <LocalLeader>h h
 
 let b:did_hol = 1

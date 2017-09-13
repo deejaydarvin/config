@@ -1,6 +1,8 @@
-(* val () = PolyML.print_depth 0; *)
+val () = PolyML.print_depth 0;
 local
-  val fifoPath = "/home/robert/.polyml/vim_fifo" (* "~/.polyml/vim_fifo"*)
+val defaultFifoPath = "/Users/robert/.polyml/vim_fifo" 
+(* "/Users/robert/src/HOL/tools/vim/fifo" *)
+  val fifoPath = Option.getOpt(OS.Process.getEnv "VIMHOL_FIFO",defaultFifoPath)
   structure Queue :> (* Modified from http://mlton.org/MLtonThread *)
      sig
         type 'a t
@@ -53,7 +55,11 @@ local
   end
   local
     fun removeAfterUse tmp =
-      (use tmp handle e => (checkTryRemove tmp; raise e);
+      (QUse.use tmp
+       handle e => (
+         checkTryRemove tmp;
+         TextIO.print ("Exception- " ^ exnMessage e ^ " raised\n");
+         PolyML.Exception.reraise e);
        checkTryRemove tmp)
     open Mutex ConditionVar
   in
@@ -64,13 +70,13 @@ local
         | SOME tmp => (unlock m; removeAfterUse tmp);
        runner ())
   end
-  val rpid = ref (Thread.fork(fn () => (), []))
   val tail = ref (execute("/usr/bin/env",["tail","/dev/null"]))
   val fifo = ref (openString "")
   fun stopTail () = (kill(!tail,Posix.Signal.term); reap (!tail); ())
   fun restartTail () = (stopTail() handle OS.SysErr _ => ();
                         tail := execute("/usr/bin/env", ["tail", "-f", fifoPath]);
                         fifo := textInstreamOf (!tail))
+  val rpid = ref (Thread.fork(fn () => (), []))
   fun poller () = let in
     case inputLine (!fifo) of
       NONE => (warn "Vimhol's tail gave eof\n"; restartTail())
@@ -98,6 +104,7 @@ local
   val ppid = ref (Thread.fork(poller,[]))
 in
   structure Vimhol = struct
+    val fifoPath = fifoPath
     fun pActive() = Thread.isActive (!ppid)
     fun rActive() = Thread.isActive (!rpid)
     val stopTail = stopTail
