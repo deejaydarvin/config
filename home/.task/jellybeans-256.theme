@@ -23,13 +23,13 @@ color.sync.rejected=rgb010
 color.undo.before=green
 color.undo.after=rgb053
 
-color.calendar.today=underline bold black on white
-color.calendar.due=green
-color.calendar.due.today=underline bold yellow on white
-color.calendar.overdue=white on red
-color.calendar.weekend=on color235
+color.calendar.today=underline 
+color.calendar.due=yellow
+color.calendar.due.today=underline bold yellow on grey
+color.calendar.overdue=bold red
+color.calendar.weekend=on grey5
 color.calendar.holiday=on cyan
-color.calendar.weeknumber=yellow
+color.calendar.weeknumber=green
 
 color.recurring=rgb151
 color.overdue=red

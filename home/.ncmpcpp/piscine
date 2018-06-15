@@ -23,6 +23,8 @@ progressbar_color = "cyan"
 statusbar_color = "white"
 color1 = "cyan"
 color2 = "cyan"
-active_column_color = "cyan"
+#active_column_color = "cyan"
+current_item_inactive_column_prefix = "cyan"
+# and current_item_inactive_column_suffix
 active_window_border = "blue"
 

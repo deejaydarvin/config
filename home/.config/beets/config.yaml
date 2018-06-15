@@ -29,7 +29,7 @@ paths:
 hook:
     hooks:
         - event: album_imported
-          command: git annex add "\"{album.path}\""
+          command: git annex add "{album.path}"
 
 # mpdupdate:
 #     host: localhost

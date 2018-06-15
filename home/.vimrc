@@ -23,7 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'matchit.zip'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
@@ -48,6 +48,7 @@ Plug 'chrisbra/CheckAttach'
 " TeX
 " Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
+Plug 'rhysd/vim-grammarous'
 
 " Haskell
 Plug 'eagletmt/ghcmod-vim'

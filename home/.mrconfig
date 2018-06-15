@@ -1,24 +1,6 @@
-
-[research/rk-uc-corruption]
-checkout = git clone 'https://git.cased.de/git/rk-uc-corruption' 'rk-uc-corruption'
-
-[research/rk-mitb-writeup]
-checkout = git clone 'https://git.cased.de/git/rk-mitb-writeup' 'rk-mitb-writeup'
-
-[research/rk-pkcs11-templatepolicy]
-checkout = git clone 'https://git.cased.de/git/rk-pkcs11-templatepolicy' 'rk-pkcs11-templatepolicy'
-
-[research/commitment]
-checkout = git clone 'https://git.cased.de/git/rk-uc-corruption' 'commitment'
-
-[research/easycrypt-uc]
-checkout = svn co 'https://ats.cs.ut.ee/unruhsvn/easycrypt-uc' 'easycrypt-uc'
-
-[research/mitb/mitb-repos]
-checkout = git clone 'git@github.com:xrchz/mitb.git' 'mitb-repos'
-
-[research/transformation]
-checkout = svn co 'https://svn.lsv.ens-cachan.fr/kunneman/secure_apis/transformation' 'transformation'
+# outdated
+# [research/rk-uc-corruption]
+# checkout = git clone 'https://git.cased.de/git/rk-uc-corruption' 'rk-uc-corruption'
 
 [doc]
 checkout = git clone 'ssh://pi-annex/mnt/doc/doc' 'doc'
@@ -28,15 +10,6 @@ copytopi = git annex copy '--to=origin'
 [studium]
 checkout = git clone 'ssh://pi/mnt/doc/studium' 'studium'
 sync = git annex sync
-
-[sit/teaching/2015-ws-fmc]
-checkout = git clone 'https://git.cased.de/git/2015-ws-fmc' '2015-ws-fmc'
-
-[sit/teaching/sit-2014-ws-universal-composability-seminar]
-checkout = git clone 'https://git.cased.de/git/sit-2014-ws-universal-composability-seminar' 'sit-2014-ws-universal-composability-seminar'
-
-[research/research-lsv]
-checkout = svn co 'https://svn.lsv.ens-cachan.fr/kunneman' 'research-lsv'
 
 [sound]
 checkout = git clone 'ssh://pi-annex/mnt/doc/sound' 'sound'
@@ -54,3 +27,4 @@ sync = git annex sync
 [Music]
 checkout = git clone 'ssh://pi-annex/mnt/musik/music' 'Music'
 sync = git annex sync
+
