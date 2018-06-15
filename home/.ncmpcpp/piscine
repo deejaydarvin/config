@@ -1,5 +1,5 @@
 mpd_music_dir = "/Users/robert/Music/"
-mpd_host="192.168.2.222"
+mpd_host="piscine"
 mpd_connection_timeout = "10"
 
 #style
@@ -23,6 +23,8 @@ progressbar_color = "cyan"
 statusbar_color = "white"
 color1 = "cyan"
 color2 = "cyan"
-active_column_color = "cyan"
+#active_column_color = "cyan"
+current_item_inactive_column_prefix = "cyan"
+# and current_item_inactive_column_suffix
 active_window_border = "blue"
 

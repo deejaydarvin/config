@@ -1,12 +1,12 @@
 #!/bin/sh
 
-git clone http://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+git clone --depth 1 http://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 homeshick clone deejaydarvin/config
 # homeshick clone git@github.com:deejaydarvin/config.git
 
-git clone http://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.homesick/repos/zsh-syntax-highlighting
+git clone --depth 1 http://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.homesick/repos/zsh-syntax-highlighting
 
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone --depth 1 https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

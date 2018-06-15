@@ -1,0 +1,30 @@
+# outdated
+# [research/rk-uc-corruption]
+# checkout = git clone 'https://git.cased.de/git/rk-uc-corruption' 'rk-uc-corruption'
+
+[doc]
+checkout = git clone 'ssh://pi-annex/mnt/doc/doc' 'doc'
+sync = git annex sync
+copytopi = git annex copy '--to=origin'
+
+[studium]
+checkout = git clone 'ssh://pi/mnt/doc/studium' 'studium'
+sync = git annex sync
+
+[sound]
+checkout = git clone 'ssh://pi-annex/mnt/doc/sound' 'sound'
+sync = git annex sync
+
+[pic]
+checkout = git clone 'ssh://pi-annex/mnt/doc/pic' 'pic'
+sync = git annex sync
+copytopi = git annex copy '--to=origin'
+
+[video]
+checkout = git clone 'ssh://pi-annex/mnt/doc/video' 'video'
+sync = git annex sync
+
+[Music]
+checkout = git clone 'ssh://pi-annex/mnt/musik/music' 'Music'
+sync = git annex sync
+

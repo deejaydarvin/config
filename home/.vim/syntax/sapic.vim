@@ -53,7 +53,7 @@ syn match sapicConstr           "\<symmetric-encryption"
 syn match sapicConstr           "\<asymmetric-encryption"
 syn match sapicConstr           "\<multiset"
 
-syn keyword sapicDecl           axiom lemma equations functions builtins protocol property in let theory begin end subsection section text predicates options
+syn keyword sapicDecl           axiom restriction lemma verdictfunction equations functions builtins protocol property in let theory begin end subsection section text predicates options
 syn match sapicDecl             "\<exists-trace"
 syn match sapicDecl             "\<all-traces"
 syn match sapicDecl             "\<enable"
@@ -74,7 +74,7 @@ syn match sapicDecl             "-->"
 syn match sapicDecl             "--\["
 syn match sapicDecl             "\]->"
 
-syn keyword sapicTransfer       new in out lookup as in else if lock unlock event insert delete then
+syn keyword sapicTransfer       new in out lookup as in else if lock unlock event insert delete then accounts for parties otherwise
 syn match sapicTransfer         "||"
 syn match sapicTransfer         "!"
 
@@ -82,7 +82,7 @@ syn region sapicLiteral          start="'" end="'"
 
 syn match sapicLogicOp          "==>"
 syn match sapicLogicOp          "<=>"
-syn keyword sapicLogicOp        F T All Ex
+syn keyword sapicLogicOp        F T All Ex not 
 syn match sapicLogicOp          "|"
 syn match sapicLogicOp          "&"
 syn match sapicLogicOp          "@"

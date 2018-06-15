@@ -20,22 +20,26 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive' 
-Plug 'edsono/vim-matchit'
+Plug 'matchit.zip'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
-" Plug 'szw/vim-tags'
- Plug 'ludovicchabant/vim-gutentags'
+" Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
+
+" branch viewer addon for fugitive
+Plug 'gregsexton/gitv'
+
+" for svn
+Plug 'vcscommand.vim'
 
 Plug 'wellle/targets.vim'
 
 Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
 
-Plug 'oplatek/Conque-Shell'
-Plug 'tarruda/vim-conque-repl' "read-eval-print loops
+" Plug 'oplatek/Conque-Shell'
+" Plug 'tarruda/vim-conque-repl' "read-eval-print loops
 
 " Mail writing.
 Plug 'dbeniamine/vim-mail'
@@ -45,6 +49,17 @@ Plug 'chrisbra/CheckAttach'
 " Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 " Plug 'ajh17/VimCompletesMe'
+"
+Plug 'rhysd/vim-grammarous'
+
+" Haskell
+Plug 'eagletmt/ghcmod-vim'
+
+
+"HTML 
+Plug 'tpope/vim-ragtag'
+
+Plug 'nelstrom/vim-markdown-folding'
 
 
 function! DoRemote(arg)
@@ -59,16 +74,17 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'jellybeans.vim'
+Plug 'robertmeta/nofrils'
 
 Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
 " Coding.
+Plug 'ludovicchabant/vim-gutentags'
 " Plug 'majutsushi/tagbar.git'
 " Plug 'mhinz/vim-signify.git'
 " Plug 'scrooloose/nerdtree.git'
 " Plug 'vim-scripts/taglist.vim'
 "
-
 " Other
 " Plug 'christoomey/vim-tmux-navigator.git'
 " tmux navigator uses C-L keybinding, which we want for nohl.
@@ -92,6 +108,10 @@ call plug#end()
 
 colorscheme jellybeans
 let g:airline_theme='jellybeans'
+
+" New stuff.... trying it out
+set wildmenu
+set path+=** " find looks in sub directories
 
 set scrolloff=10
 set wildmode=list:longest
@@ -297,12 +317,23 @@ map <silent> <Leader>F :CtrlP .<CR>
 map <silent> <Leader>f :CtrlP<CR>
 map <silent> <Leader>b :CtrlPBuffer<CR>
 
+" system copy and pasete
+vnoremap <Leader>d "+d
+vnoremap <Leader>y "+y
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
+nnoremap <Leader>d "+d
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+" copy whole file (keeping cursor position)
+nnoremap <Leader>c :%y+<CR>
+
 " smaller alternative
 " nnoremap <leader>b :ls<CR>:b
 
-map <silent> TT :CtrlPTag<CR>
-map <silent> Tb :CtrlPBufTag<CR>
-map <silent> TB :CtrlPBufTagAll<CR>
+map <silent> <Leader>t :CtrlPTag<CR>
+map <silent> <Leader>T :CtrlPBufTagAll<CR>
 
 map <silent> <Leader>R :CtrlP ~/Documents/research/<CR>
 

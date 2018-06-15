@@ -2,6 +2,8 @@
 # Options
 #
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 LOAD_MODULES=(
 	"setup"
 	"autocompletion"

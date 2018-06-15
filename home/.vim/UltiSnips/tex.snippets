@@ -15,7 +15,6 @@ endsnippet
 snippet def
 \begin{definition}[${1:definition name}]\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}} %{{{ 
 ${3}
-% definition $2 (end)
 \end{definition}%}}}
 endsnippet
 
@@ -26,12 +25,11 @@ snippet inpara
 endsnippet
 
 snippet fig
-\begin{figure}[h] %{{{fig
+\begin{figure}%{{{fig
 \centering
 ${3:${VISUAL}}
-\caption{ ${1:figure caption} }
+\caption{${1:figure caption}}
 \label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:-:\L$1$2$3\E)/g}}}
-% figure $2 (end)
 \end{figure} %}}}
 endsnippet
 
@@ -82,6 +80,38 @@ snippet "\\msf" "\mathsf" r
 \mathsf{${1:${VISUAL}}}${2}
 endsnippet
 
+
+# specific to macros-meta.tex
+snippet "\\mv" "\mathvar" r
+\mathvar{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mf" "\mathfun" r
+\mathfun{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mc" "\mathcmd" r
+\mathcmd{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\mn" "\mathname" r
+\mathname{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\ms" "\mathstring" r
+\mathstring{${1:${VISUAL}}}${2}
+endsnippet
+snippet "\\ms" "\mathstring" r
+\mathstring{${1:${VISUAL}}}${2}
+endsnippet
+
+snippet iffull
+\iffullversion%
+${1:${VISUAL}}
+\fi%
+endsnippet
+
+# specific to macros-basic.tex
+snippet "\\s" "\set" r
+\set{${1:${VISUAL}}}${2}
+endsnippet
+
 snippet "\\left" "\leftarrow" r
 \leftarrow
 endsnippet
@@ -92,6 +122,12 @@ ${1:${VISUAL}}
 \end{pmatrix}$2
 endsnippet
 
+
+snippet restate
+\begin{restatable}[$2]{thm}{$3}
+${1:${VISUAL}}
+\end{restatable}
+endsnippet
 
 snippet rob
 \robert{${1:${VISUAL}}}${2}
