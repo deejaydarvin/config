@@ -3,12 +3,12 @@ if filereadable("/Users/robert/.vim/bundle/latex-parformat/ftplugin/tex.vim")
 endif
 
 setlocal tw=70
-let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@,\'
+let g:tex_isk = '48-57,a-z,A-Z,192-255,:,-,@'
 " setlocal iskeyword+=@:-
 " Wasn't too helpful.
 " http://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/
-" autocmd InsertEnter <buffer> :set iskeyword+="\\"
-" autocmd InsertLeave <buffer> :set iskeyword-="\\"
+" autocmd InsertLeave <buffer> :set iskeyword-=/:@-
+" autocmd InsertEnter <buffer> :set iskeyword+=/:@-
 
 
 " substitute symbols by UTF-8 chars
@@ -43,10 +43,44 @@ else
   " exec "setlocal makeprg=rubber\\ -d\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 
-" folding by \iffullversion etc.
-set fdm=expr
-set foldexpr=getline(v:lnum-1)=~'\\\\if\\\|\\\\else'?'>1':(getline(v:lnum+1)=~'\\\\fi\\\|\\\\else'?'<1':-1)
+let g:vimtex_view_general_viewer
+            \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-r @line @pdf @tex'
 
-"new: latexbox plugin
-" let g:LatexBox_Folding=1
+" This adds a callback hook that updates Skim after compilation
+let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
+function! UpdateSkim(status)
+    if !a:status | return | endif
 
+    let l:out = b:vimtex.out()
+    let l:cmd = [g:vimtex_view_general_viewer, '-r']
+    if !empty(system('pgrep Skim'))
+        call extend(l:cmd, ['-g'])
+    endif
+    if has('nvim')
+        call jobstart(l:cmd + [line('.'), l:out])
+    elseif has('job')
+        call job_start(l:cmd + [line('.'), l:out])
+    else
+        call system(join(l:cmd + [line('.'), shellescape(l:out)], ' '))
+    endif
+endfunction
+
+" " this tries omnifunc first if defined and then the default
+" au FileType *
+"             \ if &omnifunc != '' |
+"             \   call SuperTabChain(&omnifunc, "<c-p>") |
+"             \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+"             \ endif
+
+" let b:vcm_omni_pattern = 
+"     \ '\v\\%('
+"     \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+"     \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+"     \ . '|hyperref\s*\[[^]]*'
+"     \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+"     \ . '|%(include%(only)?|input)\s*\{[^}]*'
+"     \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+"     \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+"     \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+"     \ . ')'

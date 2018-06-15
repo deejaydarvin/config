@@ -641,7 +641,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/Users/robert/Documents/spass/cottbus/hc/horrorclique_pulli/" />
+       path="/Users/robert/Downloads/" />
     <group
        id="import"
        enable_preview="1"
@@ -996,7 +996,7 @@
        y="0"
        fullscreen="0"
        id="geometry"
-       maximized="0" />
+       maximized="1" />
     <group
        id="XYfront" />
     <group

@@ -3,7 +3,8 @@
 directory: ~/Music/musik
 library: ~/Music/beetslib.blb
 
-plugins: fetchart lyrics lastgenre info chroma
+plugins: fetchart  lastgenre info chroma
+    # lyrics # through exception last time.
     #unused
     #discogs 
     # mpdupdate #mpd checks the dir itself
@@ -25,6 +26,9 @@ paths:
     albumtype:soundtrack: Compilations/$album/$track - $artist - $title
         #Turns out that sometimes soundtracks are not compilations, although
         #they have more than one artist.
+
+acoustid:
+    apikey: LGFjb4QoKg
 
 # mpdupdate:
 #     host: localhost

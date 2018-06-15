@@ -42,7 +42,18 @@ Plug 'dbeniamine/vim-mail'
 Plug 'chrisbra/CheckAttach'
 
 " TeX
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
+Plug 'ervandew/supertab'
+" Plug 'ajh17/VimCompletesMe'
+
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+	let g:deoplete#enable_at_startup = 1
+	" Use smartcase.
+	let g:deoplete#enable_smart_case = 1
 
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
