@@ -1,15 +1,11 @@
 #My own stuff:
 
-snippet "\\ar" "\autoref{}" r
+snippet \ar "\autoref{}" w
 \autoref{$1}
 endsnippet
 
-snippet newcommand
+snippet new
 \newcommand{$1}{$2}
-endsnippet
-
-snippet ensure "ensure" w
-\ensuremath{$1}\xspace
 endsnippet
 
 snippet def
@@ -41,87 +37,23 @@ snippet ^ "^{}" i
 ^{${1}}${2}
 endsnippet
 
-snippet \i 
-\item 
-endsnippet
-
 snippet stackrel 
 \stackrel{${1}}{${2:\longrightarrow}}${3}
 endsnippet
 
 
-snippet "\\t(ext)?" "\textSOMETHING{}" r
+snippet \t "\textSOMETHING{}" w
 \text${1:something}{${2:${VISUAL}}}${3}
 endsnippet
 
-snippet "\\m(ath)?" "\mathSOMETHING" r
+snippet \m "\mathSOMETHING" w
 \math${1:something}{${2:${VISUAL}}}${3}
 endsnippet
 
-snippet "\\ttt" "\texttt" r
-\texttt{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\tsc" "\textsc" r
-\textsc{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\tt" "\texttt" r
-\texttt{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mit" "\mathit" r
-\mathit{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mrm" "\mathrm" r
-\mathrm{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mtt" "\mathtt" r
-\mathtt{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\msf" "\mathsf" r
-\mathsf{${1:${VISUAL}}}${2}
-endsnippet
-
-
-# specific to macros-meta.tex
-snippet "\\mv" "\mathvar" r
-\mathvar{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mf" "\mathfun" r
-\mathfun{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mc" "\mathcmd" r
-\mathcmd{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\mn" "\mathname" r
-\mathname{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\ms" "\mathstring" r
-\mathstring{${1:${VISUAL}}}${2}
-endsnippet
-snippet "\\ms" "\mathstring" r
-\mathstring{${1:${VISUAL}}}${2}
-endsnippet
-
-snippet iffull
-\iffullversion%
-${1:${VISUAL}}
-\fi%
-endsnippet
-
 # specific to macros-basic.tex
-snippet "\\s" "\set" r
+snippet \s "\set" w
 \set{${1:${VISUAL}}}${2}
 endsnippet
-
-snippet "\\left" "\leftarrow" r
-\leftarrow
-endsnippet
-
-snippet pmat
-\begin{pmatrix}
-${1:${VISUAL}}
-\end{pmatrix}$2
-endsnippet
-
 
 snippet restate
 \begin{restatable}[$2]{thm}{$3}
@@ -173,7 +105,7 @@ ${4}
 \end{document}
 endsnippet
 
-snippet "\\o" "\overline" r
+snippet \o "\overline" w
 \overline
 endsnippet
 # vim:ft=snippets:

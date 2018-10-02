@@ -36,6 +36,8 @@ map <buffer> \p :make open<CR>
 nnoremap <buffer> gB ebyw:split references.bib/"
 nnoremap <buffer> gC ebyw:split commands.tex/"
 
+let g:syntastic_tex_checkers = ["lacheck", "chktex", "proselint"]
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_quiet_warnings=1
 
 setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m

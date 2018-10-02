@@ -3,12 +3,9 @@
 directory: ~/Music/musik
 library: ~/Music/beetslib.blb
 
-<<<<<<< HEAD
-plugins: fetchart  lastgenre info chroma
+# plugins: fetchart  lastgenre info chroma
     # lyrics # through exception last time.
-=======
 plugins: fetchart lyrics lastgenre info chroma hook
->>>>>>> 3bcf042d8167e99317b7252ba529651bec617ec4
     #unused
     #discogs 
     # mpdupdate #mpd checks the dir itself
