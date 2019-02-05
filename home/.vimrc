@@ -38,6 +38,8 @@ Plug 'wellle/targets.vim'
 
 Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
 
+Plug 'freitass/todo.txt-vim' " todo.txt
+
 " Plug 'oplatek/Conque-Shell'
 " Plug 'tarruda/vim-conque-repl' "read-eval-print loops
 
@@ -50,7 +52,9 @@ Plug 'chrisbra/CheckAttach'
 Plug 'ervandew/supertab'
 " Plug 'ajh17/VimCompletesMe'
 "
-Plug 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
+Plug 'dpelle/vim-LanguageTool'
+let g:languagetool_jar='$HOME/bin/LanguageTool-4.3/languagetool-commandline.jar'
 
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
@@ -61,14 +65,18 @@ Plug 'tpope/vim-ragtag'
 
 Plug 'nelstrom/vim-markdown-folding'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc' " (need to do pip3 install neovim for this to work)
+endif
+let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('auto_complete', v:false)
+let g:deoplete#auto_complete = 0
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-	let g:deoplete#enable_at_startup = 1
-	" Use smartcase.
-	let g:deoplete#enable_smart_case = 1
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
@@ -211,7 +219,7 @@ autocmd FileType taglist setlocal norelativenumber
 " alternative to nerdtree: netrw in tree style
 nnoremap <silent> <leader>n :Vexplore<CR>
 let g:netrw_liststyle = 0
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 
 "***************************************
@@ -256,13 +264,11 @@ let g:airline_powerline_fonts = 1
 set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-"
-" set fillchars=stl:―,stlnc:—,vert:│,fold:۰,diff:·
 
 
 
