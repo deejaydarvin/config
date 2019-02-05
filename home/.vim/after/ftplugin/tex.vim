@@ -36,9 +36,13 @@ map <buffer> \p :make open<CR>
 nnoremap <buffer> gB ebyw:split references.bib/"
 nnoremap <buffer> gC ebyw:split commands.tex/"
 
+let b:syntastic_mode = 'passive'
 let g:syntastic_tex_checkers = ["lacheck", "chktex", "proselint"]
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_quiet_warnings=1
+map <buffer> \S :SyntasticCheck\|SyntasticSetLoclist
+
+map <buffer> \L :LanguageToolCheck
 
 setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
 if filereadable('Makefile')
@@ -75,8 +79,9 @@ endfunction
 set suffixes+=*.sty,*.bst,*.cls
 
 " folding by \iffullversion etc.
-set fdm=expr
-set foldexpr=getline(v:lnum-1)=~'\\\\if\\\|\\\\else'?'>1':(getline(v:lnum+1)=~'\\\\fi\\\|\\\\else'?'<1':-1)
+set fdm=manual
+" set fdm=expr
+" set foldexpr=getline(v:lnum-1)=~'\\\\if\\\|\\\\else'?'>1':(getline(v:lnum+1)=~'\\\\fi\\\|\\\\else'?'<1':-1)
 
 syn match texStatement /\\index{[^}]*}\+/ conceal cchar=⚓
 syn match texStatement /\\ref/ nextgroup=texCite conceal cchar=☸ " ☸ WHEEL OF DHARMA Unicode: U+2638, UTF-8: E2 98 B8

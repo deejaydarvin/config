@@ -22,3 +22,7 @@
 --regex-latex=/\\TODO[[:alpha:]]\{([^}]+)/\1/t,todo/
 --regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
 --latex-kinds=lscgt
+
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/^@[A-Za-z]+\{([^,]*)/\1/b,bib/
