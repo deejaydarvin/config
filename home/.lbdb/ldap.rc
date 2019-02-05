@@ -1,0 +1,19 @@
+%ldap_server_db = (
+    'cispa' => ['ldaps://ldap.cispa.saarland:636',
+                    'ou=People,dc=cispa,dc=saarland',
+                    'givenname sn cn mail', 'givenname sn cn mail',
+                    '${mail}', '${givenname} ${sn}']
+);
+
+# hostname of your ldap server
+$ldap_server = 'ldaps://ldap.cispa.saarland:636';
+$search_base = 'ou=People,dc=cispa,dc=saarland';
+$ldap_search_fields    = 'givenname sn cn mail';
+$ldap_expected_answers = 'givenname sn cn mail';
+$ldap_result_email     = '${mail}';
+$ldap_result_realname  = '${givenname} ${sn}';
+$ignorant = 0;
+$ldap_bind_dn = '';
+$ldap_bind_password = '';
+1;
+
