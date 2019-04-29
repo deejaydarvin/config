@@ -41,7 +41,7 @@
 # - m_vcf        search a vcard (according to RFC2426) file.
 
 # METHODS="m_inmail m_passwd m_finger"
-METHODS="m_inmail m_muttalias m_osx_addressbook m_ldap"
+METHODS="m_inmail m_muttalias m_osx_addressbook" # m_ldap"
 # METHODS="m_muttalias"
 
 

@@ -36,7 +36,8 @@ Plug 'vcscommand.vim'
 
 Plug 'wellle/targets.vim'
 
-Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
+" Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
+Plug 'w0rp/ale' " Tryin' out ale instead
 
 Plug 'freitass/todo.txt-vim' " todo.txt
 
@@ -44,7 +45,7 @@ Plug 'freitass/todo.txt-vim' " todo.txt
 " Plug 'tarruda/vim-conque-repl' "read-eval-print loops
 
 " Mail writing.
-Plug 'dbeniamine/vim-mail'
+Plug 'https://github.com/dbeniamine/vim-mail.git'
 Plug 'chrisbra/CheckAttach'
 
 " TeX
@@ -58,6 +59,8 @@ let g:languagetool_jar='$HOME/bin/LanguageTool-4.3/languagetool-commandline.jar'
 
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'dag/vim2hs'
 
 
 "HTML 
@@ -241,8 +244,9 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "********** Ulti Snips ******
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "***************************************
 "********** Airline  ******
@@ -261,16 +265,23 @@ let g:airline_powerline_fonts = 1
 
 " set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\ \|\ %p%%\ \|\ LN\ %l:%c\ 
 
-set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
+let g:ale_linters ={
+      \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
+      \}
+let g:ale_set_highlights = 0
+let g:ale_completion_enabled = 1
 
-
+noremap <Leader>gd :ALEGoToDefinition<CR>
+noremap <Leader>lf :ALEFix<CR>
+noremap <Leader>gr :ALEFindReferences<CR>
 
 " ************************************************************
 " ******************Load dictionaries based on filetype*******

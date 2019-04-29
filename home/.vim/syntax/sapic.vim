@@ -51,9 +51,11 @@ syn match sapicConstr           "\^"
 syn match sapicConstr           "\<diffie-hellman"
 syn match sapicConstr           "\<symmetric-encryption"
 syn match sapicConstr           "\<asymmetric-encryption"
+syn match sapicConstr           "\<translation-progress"
+syn match sapicConstr           "\<reliable-channel"
 syn match sapicConstr           "\<multiset"
 
-syn keyword sapicDecl           axiom restriction lemma verdictfunction equations functions builtins protocol property in let theory begin end subsection section text predicates options
+syn keyword sapicDecl           axiom restriction lemma verdictfunction equations functions builtins protocol property in let theory begin end subsection section text predicates options heuristic 
 syn match sapicDecl             "\<exists-trace"
 syn match sapicDecl             "\<all-traces"
 syn match sapicDecl             "\<enable"
