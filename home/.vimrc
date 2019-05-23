@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 " checkout zone
 
-Plug 'ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
@@ -20,7 +20,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive' 
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-vinegar'
@@ -31,18 +31,11 @@ Plug 'rking/ag.vim'
 " branch viewer addon for fugitive
 Plug 'gregsexton/gitv'
 
-" for svn
-Plug 'vcscommand.vim'
-
 Plug 'wellle/targets.vim'
 
-" Plug 'scrooloose/syntastic' " Syntax check on LaTeX and more
-Plug 'w0rp/ale' " Tryin' out ale instead
+Plug 'w0rp/ale' 
 
 Plug 'freitass/todo.txt-vim' " todo.txt
-
-" Plug 'oplatek/Conque-Shell'
-" Plug 'tarruda/vim-conque-repl' "read-eval-print loops
 
 " Mail writing.
 Plug 'https://github.com/dbeniamine/vim-mail.git'
@@ -62,6 +55,9 @@ Plug 'eagletmt/ghcmod-vim'
 " Plug 'eagletmt/neco-ghc'
 " Plug 'dag/vim2hs'
 
+" tamarin
+" Plug "tamarin-prover/editors"
+Plug '~/src/tamarin-prover/editors'
 
 "HTML 
 Plug 'tpope/vim-ragtag'
@@ -84,23 +80,13 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
-Plug 'jellybeans.vim'
+Plug 'vim-scripts/jellybeans.vim'
 Plug 'robertmeta/nofrils'
 
 Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 
 " Coding.
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'majutsushi/tagbar.git'
-" Plug 'mhinz/vim-signify.git'
-" Plug 'scrooloose/nerdtree.git'
-" Plug 'vim-scripts/taglist.vim'
-"
-" Other
-" Plug 'christoomey/vim-tmux-navigator.git'
-" tmux navigator uses C-L keybinding, which we want for nohl.
-" also requires tmux >v1.8
-" Plug 'bling/vim-airline'
 
 "Stuff that's lying around
 " Plug 'file://~/.vim/bundle/latex-parformat'
@@ -110,9 +96,6 @@ call plug#end()
 "
 "************************************************************
 "********* Standard Stuff ***********************************
-
-" colorscheme desert
-" colorscheme ironman
 
 " colorscheme molokai
 " let g:airline_theme='molokai'
@@ -212,19 +195,6 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 set foldlevel=1
 autocmd FileType taglist setlocal norelativenumber
 
-
-"**************************************
-"*************** Nerdtree Plugin ******
-
-" nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-" autocmd FileType nerdtree setlocal norelativenumber
-
-" alternative to nerdtree: netrw in tree style
-nnoremap <silent> <leader>n :Vexplore<CR>
-let g:netrw_liststyle = 0
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
-
 "***************************************
 "********** CtrlP plugin ******
 " don't delete cache upon exit
@@ -248,31 +218,6 @@ let g:UltiSnipsListSnippets="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"***************************************
-"********** Airline  ******
-let g:UltiSnipsEditSplit = 'horizontal'
-let g:airline_powerline_fonts = 1
-
-"*******************************
-"***********Syntastic plugin****
-" smaller statusline
-" set statusline=%F%m%r%h%w 
-" set statusline +=\ %n\ %*            "buffer number
-" set statusline +=[%{strlen(&fenc)?&fenc:&enc}]
-" set statusline +=%m                "modified flag
-" set statusline +=*%=%5l%*
-" set statusline +=/%L%*               "total lines
-
-" set statusline=%<\ %F%=\ %{&fileformat}\ \|\ %{&fileencoding}\ \|\ %{&filetype}\ \|\ %p%%\ \|\ LN\ %l:%c\ 
-
-" set statusline=%<\ %n:%t\ %m%r%y%w%=\%l\/\%L\ %p%%\ :\ \%c
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
 let g:ale_linters ={
       \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
       \}
@@ -290,7 +235,6 @@ set complete+=k
 
 " ********************************************************
 " ************ Always jump to last cursor position *******
-
 if has("autocmd")
   augroup vimrcEx
     autocmd!
@@ -353,6 +297,11 @@ map <silent> <Leader>t :CtrlPTag<CR>
 map <silent> <Leader>T :CtrlPBufTagAll<CR>
 
 map <silent> <Leader>R :CtrlP ~/Documents/research/<CR>
+
+nmap <silent> <Leader>ga :Gcommit -a<CR>
+nmap <silent> <Leader>gs :Gstatus<CR>
+nmap  <Leader>gP :!git push<CR>
+nmap  <Leader>gp :!git pull<CR>
 
 "gtfo
 nmap <silent> gof :!xdg-open %:h<CR>
