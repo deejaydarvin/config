@@ -19,6 +19,8 @@ let g:tex_conceal="admg"
 " don't apply special syntaxhighlighting on conceal
 hi clear Conceal
 
+let g:tex_flavor='latex'
+
 setlocal wildignore=*.aux,*.log,*.pdf
 
 let g:tex_comment_nospell= 1
@@ -27,6 +29,10 @@ setlocal fo+=nt
 
 setlocal spell
 autocmd! InsertLeave % :SetSpelllang
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>ui 
+"jumps to the pre­vi­ous spelling mis­take [s, then picks the first
+"sug­ges­tion 1z=, and then jumps back `]a. The <c-g>u in the mid­dle make it
+"pos­si­ble to undo the spelling cor­rec­tion quick­ly.
 
 setlocal thesaurus+='~/.vim/thesaurus/mthesaur.txt'
 
@@ -36,11 +42,11 @@ map <buffer> \p :make open<CR>
 nnoremap <buffer> gB ebyw:split references.bib/"
 nnoremap <buffer> gC ebyw:split commands.tex/"
 
-let b:syntastic_mode = 'passive'
-let g:syntastic_tex_checkers = ["lacheck", "chktex", "proselint"]
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_quiet_warnings=1
-map <buffer> \S :SyntasticCheck\|SyntasticSetLoclist
+" let b:syntastic_mode = 'passive'
+" let g:syntastic_tex_checkers = ["lacheck", "chktex", "proselint"]
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_quiet_warnings=1
+" map <buffer> \S :SyntasticCheck\|SyntasticSetLoclist
 
 map <buffer> \L :LanguageToolCheck
 

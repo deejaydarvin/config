@@ -71,10 +71,6 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc' " (need to do pip3 install neovim for this to work)
 endif
-let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#option('auto_complete', v:false)
-let g:deoplete#auto_complete = 0
-
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Bling Bling
@@ -218,15 +214,16 @@ let g:UltiSnipsListSnippets="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-let g:ale_linters ={
-      \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
-      \}
-let g:ale_set_highlights = 0
-let g:ale_completion_enabled = 1
+"***************************************
+"********** deoplete Snips ******
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete', v:false)
 
-noremap <Leader>gd :ALEGoToDefinition<CR>
-noremap <Leader>lf :ALEFix<CR>
-noremap <Leader>gr :ALEFindReferences<CR>
+
+"***************************************
+"********** ALE ******
+let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 0 " run linters not named in ale_linters settings.
 
 " ************************************************************
 " ******************Load dictionaries based on filetype*******
@@ -277,6 +274,10 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 map <silent> <Leader>F :CtrlP .<CR>
 map <silent> <Leader>f :CtrlP<CR>
 map <silent> <Leader>b :CtrlPBuffer<CR>
+
+noremap <Leader>gd :ALEGoToDefinition<CR>
+noremap <Leader>lf :ALEFix<CR>
+noremap <Leader>gr :ALEFindReferences<CR>
 
 " system copy and pasete
 vnoremap <Leader>d "+d
