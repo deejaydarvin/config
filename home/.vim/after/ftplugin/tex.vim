@@ -12,6 +12,8 @@ setlocal iskeyword=48-57,a-z,A-Z,192-255,:,-,@,\
 " autocmd InsertEnter <buffer> :set iskeyword+=/:@-
 
 
+let g:tex_flavor = "latex" "default to latex instead of context or plaintex
+
 " substitute symbols by UTF-8 chars
 set conceallevel=2
 " but not subscripts

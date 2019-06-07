@@ -35,7 +35,7 @@ Plug 'wellle/targets.vim'
 
 Plug 'w0rp/ale' 
 
-Plug 'freitass/todo.txt-vim' " todo.txt
+Plug 'freitass/todo.txt-vim'
 
 " Mail writing.
 Plug 'https://github.com/dbeniamine/vim-mail.git'
@@ -278,6 +278,10 @@ map <silent> <Leader>b :CtrlPBuffer<CR>
 noremap <Leader>gd :ALEGoToDefinition<CR>
 noremap <Leader>lf :ALEFix<CR>
 noremap <Leader>gr :ALEFindReferences<CR>
+
+nmap <silent> <Leader>gs :Gstatus<CR>
+nmap <silent> <Leader>ga :Gcommit -a<CR>
+nmap <silent> <Leader>gw :Gwrite<CR>
 
 " system copy and pasete
 vnoremap <Leader>d "+d

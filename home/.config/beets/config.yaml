@@ -33,7 +33,7 @@ acoustid:
 hook:
     hooks:
         - event: album_imported
-          command: git annex add "{album.path}"
+          command: cd "{album.path} && git annex add . "
 
 # mpdupdate:
 #     host: localhost

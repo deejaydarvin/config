@@ -26,6 +26,7 @@ alias mutt=neomutt
 alias polyvim='rlwrap poly --use ~/.polyml/vimhol.ml'
 # alias holvim='TERM=xterm rlwrap ~/src/HOL/bin/hol --use ~/.hol-config.sml'
 # alias holvim='TERM=xterm rlwrap hol --use ~/.hol-config.sml'
+# alias holvim='TERM=xterm rlwrap ~/src/HOL/bin/hol'
 alias holvim='TERM=xterm rlwrap hol'
 alias ocamli='rlwrap ocaml'
 export RLWRAP_EDITOR="vi +%L"
