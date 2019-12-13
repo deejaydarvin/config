@@ -33,7 +33,12 @@ Plug 'gregsexton/gitv'
 
 Plug 'wellle/targets.vim'
 
-Plug 'w0rp/ale' 
+" tried: ale (old), coc (nodejs), vim-lsp, vim-lsc, (incomplete)
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'freitass/todo.txt-vim'
 
@@ -48,12 +53,11 @@ Plug 'ervandew/supertab'
 "
 " Plug 'rhysd/vim-grammarous'
 Plug 'dpelle/vim-LanguageTool'
-let g:languagetool_jar='$HOME/bin/LanguageTool-4.3/languagetool-commandline.jar'
+let g:languagetool_jar='$HOME/bin/LanguageTool-4.7/languagetool-commandline.jar'
 
 " Haskell
-Plug 'eagletmt/ghcmod-vim'
-" Plug 'eagletmt/neco-ghc'
-" Plug 'dag/vim2hs'
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'bitc/vim-hdevtools'
 
 " tamarin
 " Plug "tamarin-prover/editors"
@@ -84,9 +88,9 @@ Plug 'file:///Users/robert/doc/computern/vim-spelllangcheck'
 " Coding.
 Plug 'ludovicchabant/vim-gutentags'
 
-"Stuff that's lying around
-" Plug 'file://~/.vim/bundle/latex-parformat'
-" Plug 'unblevable/quick-scope'
+" latex
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 "
@@ -218,12 +222,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 "********** deoplete Snips ******
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', v:false)
+" This is new style
+call deoplete#custom#var('omni', 'input_patterns', {
+          \ 'tex': g:vimtex#re#deoplete
+          \})
 
 
-"***************************************
-"********** ALE ******
-let g:ale_completion_enabled = 1
-let g:ale_linters_explicit = 0 " run linters not named in ale_linters settings.
+
 
 " ************************************************************
 " ******************Load dictionaries based on filetype*******
@@ -262,7 +267,7 @@ endif
 
 "**************************************
 "*************** Spell choices for mail
-let g:spell_choices = "en,de,fr"
+let g:spell_choices = "en_us,de,fr"
 "*************** keywords for attachments
 let g:attach_check_keywords =',anbei,angehangen,attaché,attachée'
 "**************************************
@@ -274,10 +279,6 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 map <silent> <Leader>F :CtrlP .<CR>
 map <silent> <Leader>f :CtrlP<CR>
 map <silent> <Leader>b :CtrlPBuffer<CR>
-
-noremap <Leader>gd :ALEGoToDefinition<CR>
-noremap <Leader>lf :ALEFix<CR>
-noremap <Leader>gr :ALEFindReferences<CR>
 
 nmap <silent> <Leader>gs :Gstatus<CR>
 nmap <silent> <Leader>ga :Gcommit -a<CR>
@@ -334,3 +335,33 @@ map <leader>s :mksession!  session.vis<CR>
 "*************** Mac specific ***
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
+
+let g:LanguageClient_serverCommands = {
+   \ 'haskell': ['hie-wrapper'],
+   \ }
+
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>lc :call LanguageClient_contextMenu()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+
+hi link ALEError Error
+hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
+
+" Antidote
+function CallAntidote10()
+  :w
+  echom system("open -a /Applications/Antidote/Antidote\\ 10.app \"". bufname("%")."\"")
+  let choice=confirm ("Done saving?","&Yes",1)
+  echo "Reloaded"
+  :e
+endfunction
+ 
+nmap <Leader>a :call CallAntidote10()<CR>

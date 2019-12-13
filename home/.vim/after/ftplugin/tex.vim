@@ -40,7 +40,7 @@ setlocal thesaurus+='~/.vim/thesaurus/mthesaur.txt'
 
 setlocal autowrite
 map <buffer> \m :Make<CR> 
-map <buffer> \p :make open<CR>
+" map <buffer> \p :make open<CR> " clashes with shortcut for paste
 nnoremap <buffer> gB ebyw:split references.bib/"
 nnoremap <buffer> gC ebyw:split commands.tex/"
 

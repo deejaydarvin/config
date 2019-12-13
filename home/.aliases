@@ -57,5 +57,8 @@ alias kauf='einkauf add proj:rewe'
 alias talex='task rc:~/lab/teaching/2019-SS-Dax-soundness-infrastructure-attacker/taskrc'
 alias thesis="task rc=\`git rev-parse --show-toplevel\`/taskrc rc.data.location=\`git rev-parse --show-toplevel\`/tasks"
 
-alias bantschow='mutt -H ~/.mail/templates/bantschow.mail/cur/1445938465.11423_5.pc-kuennemann:2,S'
+# alias bantschow='mutt -H ~/.mail/templates/bantschow.mail/cur/1445938465.11423_5.pc-kuennemann:2,S'
 
+function mkword (){
+    pandoc $1 --reference-doc=$HOME/.pandoc/reference-files/cispaletter.docx -t docx -o ${1:r}.docx
+}

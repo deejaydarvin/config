@@ -645,7 +645,7 @@
     <group
        id="import"
        enable_preview="1"
-       path="/Users/robert/Documents/privat/inria internal affairs/" />
+       path="/Users/robert/Desktop/" />
     <group
        id="debug"
        redirect="0" />
@@ -690,9 +690,9 @@
        panel_mode="1"
        panel_wrap="0"
        x="0"
-       y="379"
-       w="660"
-       h="340" />
+       y="0"
+       w="654"
+       h="320" />
     <group
        id="script" />
     <group
@@ -982,7 +982,7 @@
   </group>
   <group
      id="extensions"
-     org.inkscape.input.gdkpixbuf.jpg.link="link"
+     org.inkscape.input.gdkpixbuf.jpg.link="embed"
      org.inkscape.input.gdkpixbuf.png.link="link"
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF14"
      org.inkscape.output.pdf.cairorenderer.resolution="90" />
@@ -990,13 +990,13 @@
      id="desktop"
      style="fill:#ffffff;font-weight:normal;-inkscape-font-specification:Verdana;font-size:206.65808105px;text-anchor:start;text-align:start;opacity:1;fill-opacity:1;font-family:Verdana;font-style:normal;font-stretch:normal;font-variant:normal;writing-mode:lr;line-height:125%;stroke:#000000;stroke-opacity:1;stroke-width:7.70000000000000018;stroke-miterlimit:4;stroke-dasharray:none">
     <group
-       width="1779"
-       height="1075"
-       x="283"
-       y="235"
+       width="1578"
+       height="1295"
+       x="55"
+       y="1"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
