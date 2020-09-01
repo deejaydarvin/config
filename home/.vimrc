@@ -61,7 +61,8 @@ let g:languagetool_jar='$HOME/bin/LanguageTool-4.7/languagetool-commandline.jar'
 
 " tamarin
 " Plug "tamarin-prover/editors"
-Plug '~/src/tamarin-prover/editors'
+" uses branch checkout out in that dir
+Plug '~/src/tamarin/editors' 
 
 "HTML 
 Plug 'tpope/vim-ragtag'
@@ -194,6 +195,11 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 
 set foldlevel=1
 autocmd FileType taglist setlocal norelativenumber
+
+"***************************************
+"********** vimtex plugin ******
+let g:tex_flavor = "latex" "default to latex instead of context or plaintex
+
 
 "***************************************
 "********** CtrlP plugin ******

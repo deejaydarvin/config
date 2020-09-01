@@ -99,7 +99,6 @@ color quoted5 color251 default
 color quoted6 color247 default
 color quoted7 color243 default
 color quoted8 green default
-color quoted9 brightcyan default
 # GPG Stuff
 # I can never get this fracking GPG regex's to work
 # Please fork and send a pull request
