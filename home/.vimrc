@@ -60,7 +60,7 @@ let g:languagetool_jar='$HOME/bin/LanguageTool-4.7/languagetool-commandline.jar'
 " Plug 'bitc/vim-hdevtools'
 
 " tamarin
-" Plug "tamarin-prover/editors"
+" Plug 'rkunnema/editors', { 'branch': 'develop' }
 " uses branch checkout out in that dir
 Plug '~/src/tamarin/editors' 
 
@@ -177,25 +177,6 @@ set spellsuggest=10
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-
-"**************************************
-"*************** Tag List plugin ******
-if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n" "Mac options here
-        let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-    else
-        if s:uname == "Linux\n"
-        let Tlist_Ctags_Cmd="ctags"
-        endif
-    endif
-endif
-let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
-let tlist_make_settings  = 'make;m:makros;t:targets'
-
-set foldlevel=1
-autocmd FileType taglist setlocal norelativenumber
-
 "***************************************
 "********** vimtex plugin ******
 let g:tex_flavor = "latex" "default to latex instead of context or plaintex
@@ -207,7 +188,6 @@ let g:tex_flavor = "latex" "default to latex instead of context or plaintex
 let g:ctrlp_clear_cache_on_exit=0
 
 " speed up by using ag, the silver searcher
-
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
       \ --ignore .svn
@@ -227,13 +207,11 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 "***************************************
 "********** deoplete Snips ******
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete', v:false)
+" call deoplete#custom#option('auto_complete', v:false)
 " This is new style
-call deoplete#custom#var('omni', 'input_patterns', {
-          \ 'tex': g:vimtex#re#deoplete
-          \})
-
-
+" call deoplete#custom#var('omni', 'input_patterns', {
+"           \ 'tex': g:vimtex#re#deoplete
+"           \})
 
 
 " ************************************************************
@@ -344,6 +322,7 @@ set mouse=a
 
 let g:LanguageClient_serverCommands = {
    \ 'haskell': ['hie-wrapper'],
+   \ 'tex': ['texlab'],
    \ }
 
 " Or map each action separately
