@@ -8,7 +8,6 @@ LOAD_MODULES=(
 	"setup"
 	"autocompletion"
 	"history"
-	"syntax-highlighting"
     "vim-foreground"
     "vimtricks"
     "zman"
@@ -17,6 +16,8 @@ LOAD_MODULES=(
     "task"
     "fasd"
     "fzf"
+    # "pure"
+	# "syntax-highlighting"
     # "gpg-agent" not needed with mac os at least.
 )
 
@@ -28,42 +29,19 @@ else
     LOAD_MODULES+=( "notify")
 fi
 
+# Run the following command to regenerate
+# antibody bundle < ~/.zsh/plugins.txt > ~/.zsh/plugins.sh
+source ~/.zsh/plugins.sh
 
-# LOAD_THEME="gears_plain"
-LOAD_THEME="pure-vim"
+autoload -U promptinit; promptinit
+prompt pure
 
 #### Do not change anything after this file
 
-autoload -U colors && colors													# Enable colors in prompt
-
-setopt prompt_subst
-setopt extended_glob
-
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 
-function OnLoad()
-{
-	source "$HOME/.zsh/themes/"$LOAD_THEME".zsh"
-
-	__theme_Init
-
-	for module in $LOAD_MODULES; do
-		source "$HOME/.zsh/functions/"$module
-	done
-}
-
-function chpwd()
-{
-	__theme_OnPWD
-}
-function precmd()
-{
-	__theme_OnCMD
-}
-
-OnLoad
-
-unset LOAD_MODULES
-unset LOAD_THEME
+for module in $LOAD_MODULES; do
+	source "$HOME/.zsh/functions/"$module
+done
 
 # vim:set path=~/.zsh/functions/
