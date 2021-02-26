@@ -58,6 +58,10 @@ alias kauf='einkauf add proj:rewe'
 alias talex='task rc:~/lab/teaching/2019-SS-Dax-soundness-infrastructure-attacker/taskrc'
 alias thesis="task rc=\`git rev-parse --show-toplevel\`/taskrc rc.data.location=\`git rev-parse --show-toplevel\`/tasks"
 
+# transparently set up a vpn via ssh to CISPA
+# route everything alias cispavpn='sshuttle --dns -r cispa-sshgateway 0/0'
+alias cispavpn='sshuttle --dns -r cispa-sshgateway 134.96.225.0/24 134.96.235.0/24'
+
 # alias bantschow='mutt -H ~/.mail/templates/bantschow.mail/cur/1445938465.11423_5.pc-kuennemann:2,S'
 
 function mkword (){
