@@ -68,15 +68,6 @@ Plug '~/src/tamarin-prover/editors'
 Plug 'tpope/vim-ragtag'
 Plug 'nelstrom/vim-markdown-folding'
 
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc' " (need to do pip3 install neovim for this to work)
-" endif
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
@@ -202,16 +193,6 @@ let g:UltiSnipsListSnippets="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"***************************************
-"********** deoplete Snips ******
-let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#option('auto_complete', v:false)
-" This is new style
-" call deoplete#custom#var('omni', 'input_patterns', {
-"           \ 'tex': g:vimtex#re#deoplete
-"           \})
-
-
 " ************************************************************
 " ******************Load dictionaries based on filetype*******
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
@@ -317,26 +298,6 @@ map <leader>s :mksession!  session.vis<CR>
 "*************** Mac specific ***
 " allows to use the mousewheel for scrolling, at least in iterm2.
 set mouse=a
-
-let g:LanguageClient_serverCommands = {
-   \ 'haskell': ['hie-wrapper'],
-   \ 'tex': ['texlab'],
-   \ }
-
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>lc :call LanguageClient_contextMenu()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>lb :call LanguageClient#textDocument_references()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-
-hi link ALEError Error
-hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
-hi link ALEWarning Warning
-hi link ALEInfo SpellCap
 
 " Antidote
 function CallAntidote10()
