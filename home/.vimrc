@@ -35,10 +35,10 @@ Plug 'wellle/targets.vim'
 
 " tried: ale (old), coc (nodejs), vim-lsp, vim-lsc, (incomplete)
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 Plug 'freitass/todo.txt-vim'
 
@@ -62,21 +62,20 @@ let g:languagetool_jar='$HOME/bin/LanguageTool-4.7/languagetool-commandline.jar'
 " tamarin
 " Plug 'rkunnema/editors', { 'branch': 'develop' }
 " uses branch checkout out in that dir
-Plug '~/src/tamarin/editors' 
+Plug '~/src/tamarin-prover/editors' 
 
 "HTML 
 Plug 'tpope/vim-ragtag'
-
 Plug 'nelstrom/vim-markdown-folding'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc' " (need to do pip3 install neovim for this to work)
-endif
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc' " (need to do pip3 install neovim for this to work)
+" endif
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Bling Bling
 " Plug 'altercation/vim-colors-solarized'
@@ -180,7 +179,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 "***************************************
 "********** vimtex plugin ******
 let g:tex_flavor = "latex" "default to latex instead of context or plaintex
-
 
 "***************************************
 "********** CtrlP plugin ******
@@ -288,7 +286,7 @@ map <silent> <Leader>T :CtrlPBufTagAll<CR>
 
 map <silent> <Leader>R :CtrlP ~/Documents/research/<CR>
 
-nmap <silent> <Leader>ga :Gcommit -a<CR>
+nmap <silent> <Leader>ga :Git commit -a<CR>
 nmap <silent> <Leader>gs :Gstatus<CR>
 nmap  <Leader>gP :!git push<CR>
 nmap  <Leader>gp :!git pull<CR>

@@ -28,10 +28,10 @@ fi
 
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "mafredri/zsh-async" 
+zplug "mafredri/zsh-async"
 zplug "zsh-users/zsh-syntax-highlighting"
-
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "~/.zsh/plugins/", from:local
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -41,10 +41,8 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load
+zplug load # --verbose # for more details
 
-# autoload -U promptinit; promptinit
-# prompt pure
 
 #### Do not change anything after this file
 
