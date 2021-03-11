@@ -31,7 +31,8 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "mafredri/zsh-async"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "~/.zsh/plugins/", from:local
+
+zplug "wookayin/fzf-fasd"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
