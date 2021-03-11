@@ -16,9 +16,6 @@ LOAD_MODULES=(
     "task"
     "fasd"
     "fzf"
-    # "pure"
-	# "syntax-highlighting"
-    # "gpg-agent" not needed with mac os at least.
 )
 
 # OS Specific choices...
@@ -29,12 +26,25 @@ else
     LOAD_MODULES+=( "notify")
 fi
 
-# Run the following command to regenerate
-# antibody bundle < ~/.zsh/plugins.txt > ~/.zsh/plugins.sh
-source ~/.zsh/plugins.sh
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "mafredri/zsh-async" 
+zplug "zsh-users/zsh-syntax-highlighting"
 
-autoload -U promptinit; promptinit
-prompt pure
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+# autoload -U promptinit; promptinit
+# prompt pure
 
 #### Do not change anything after this file
 
