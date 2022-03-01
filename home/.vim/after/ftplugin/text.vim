@@ -3,5 +3,4 @@ setlocal formatlistpat=^\\s*[\\[({]\\\?\\([0-9]\\+\\\|[iIvVxXlLcCdDmM]\\+\\\|[a-
 setlocal spell
 set spelllang=de,en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>ui
-
-call deoplete#custom#buffer_option('auto_complete', v:false)
+" call deoplete#custom#buffer_option('auto_complete', v:false)

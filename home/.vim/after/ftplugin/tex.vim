@@ -28,7 +28,7 @@ let g:tex_comment_nospell= 1
 setlocal fo+=nt
 
 setlocal spell
-autocmd! InsertLeave % :SetSpelllang
+" autocmd! InsertLeave % :SetSpelllang
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>ui 
 "jumps to the pre­vi­ous spelling mis­take [s, then picks the first
 "sug­ges­tion 1z=, and then jumps back `]a. The <c-g>u in the mid­dle make it
