@@ -28,6 +28,8 @@ sync = git annex sync
 checkout = git clone 'ssh://pi-annex/mnt/musik/music' 'Music'
 sync = git annex sync
 
-
 [research/cryptobap-paper]
 checkout = git clone 'https://github.com/FaezehNasrabadi/symbolic-execution-to-iml.git' 'cryptobap-paper'
+
+[research/ucissc]
+checkout = git clone 'https://github.com/squera/ucissc.git' 'ucissc'

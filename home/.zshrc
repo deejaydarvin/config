@@ -22,6 +22,7 @@ LOAD_MODULES=(
 if [[ `uname` == "Darwin" ]]; then 
     # OPAM configuration
     source /Users/robert/.opam/opam-init/init.zsh
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else 
     LOAD_MODULES+=( "notify")
 fi
