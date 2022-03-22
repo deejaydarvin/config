@@ -33,3 +33,6 @@ checkout = git clone 'https://github.com/FaezehNasrabadi/symbolic-execution-to-i
 
 [research/ucissc]
 checkout = git clone 'https://github.com/squera/ucissc.git' 'ucissc'
+
+[research/poc-generator]
+checkout = git clone 'git@projects.cispa.saarland:ilkan.esiyok/poc.git' 'poc-generator'
