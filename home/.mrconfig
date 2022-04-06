@@ -40,5 +40,5 @@ checkout = git clone 'git@projects.cispa.saarland:ilkan.esiyok/poc.git' 'poc-gen
 [.homesick/repos/config]
 checkout = git clone 'git@github.com:deejaydarvin/config.git' 'config'
 
-[lab/projects/2021-03 Facebook: Privacy Enhancing Technologies]
+[lab/projects/2022-03 Facebook: Privacy Enhancing Technologies]
 checkout = git clone 'git@projects.cispa.saarland:kuennemann/facebook-specmonitor.git' '2021-03 Facebook: Privacy Enhancing Technologies'
