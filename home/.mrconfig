@@ -28,8 +28,17 @@ sync = git annex sync
 checkout = git clone 'ssh://pi-annex/mnt/musik/music' 'Music'
 sync = git annex sync
 
+[research/cryptobap-techreport]
+checkout = git clone 'https://github.com/FaezehNasrabadi/symbolic-execution-to-iml.git' 'cryptobap-techreport'
+
 [research/cryptobap-paper]
-checkout = git clone 'https://github.com/FaezehNasrabadi/symbolic-execution-to-iml.git' 'cryptobap-paper'
+checkout = git clone 'https://github.com/FaezehNasrabadi/CCS2022' 'cryptobap-paper'
+
+[research/cryptobap-bin-csec-modex]
+checkout = git clone 'https://projects.cispa.saarland/c01fana/csec-modex' 'cryptobap-bin-csec-modex'
+
+[research/cryptobap-bin-symbolic-execution]
+checkout = git clone 'git@projects.cispa.saarland:c01fana/new-symbolic-execution-on-old-andreas-code.git' 'cryptobap-bin-symbolic-execution'
 
 [research/ucissc]
 checkout = git clone 'https://github.com/squera/ucissc.git' 'ucissc'
