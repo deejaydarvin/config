@@ -54,3 +54,9 @@ checkout = git clone 'git@projects.cispa.saarland:kuennemann/facebook-specmonito
 
 [research/voting-everlasting]
 checkout = git clone 'git@projects.cispa.saarland:kuennemann/voting-everlasting.git' 'voting-everlasting'
+
+[research/cryptobap-parallel]
+checkout = git clone 'git@projects.cispa.saarland:kuennemann/cryptobap-parallel.git' 'cryptobap-parallel'
+
+[research/specmon-paper]
+checkout = git clone 'git@projects.cispa.saarland:kevin.morio/specmon-paper.git' 'specmon-paper'

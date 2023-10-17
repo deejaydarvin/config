@@ -59,9 +59,7 @@ let g:languagetool_jar='$HOME/bin/LanguageTool-4.7/languagetool-commandline.jar'
 " Plug 'eagletmt/ghcmod-vim'
 " Plug 'bitc/vim-hdevtools'
 
-" tamarin
-" Plug 'rkunnema/editors', { 'branch': 'develop' }
-" uses branch checkout out in that dir
+" tamarin and others
 Plug '~/src/tamarin-prover/editors' 
 
 "HTML 

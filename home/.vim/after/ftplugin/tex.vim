@@ -58,28 +58,30 @@ else
   " exec "setlocal makeprg=rubber\\ -d\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 
-let g:vimtex_view_general_viewer
-            \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '-r @line @pdf @tex'
+let g:vimtex_view_method = 'skim'
 
-" This adds a callback hook that updates Skim after compilation
-let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
-function! UpdateSkim(status)
-    if !a:status | return | endif
+" let g:vimtex_view_general_viewer
+"             \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+" let g:vimtex_view_general_options = '-r @line @pdf @tex'
 
-    let l:out = b:vimtex.out()
-    let l:cmd = [g:vimtex_view_general_viewer, '-r']
-    if !empty(system('pgrep Skim'))
-        call extend(l:cmd, ['-g'])
-    endif
-    if has('nvim')
-        call jobstart(l:cmd + [line('.'), l:out])
-    elseif has('job')
-        call job_start(l:cmd + [line('.'), l:out])
-    else
-        call system(join(l:cmd + [line('.'), shellescape(l:out)], ' '))
-    endif
-endfunction
+" " This adds a callback hook that updates Skim after compilation
+" let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
+" function! UpdateSkim(status)
+"     if !a:status | return | endif
+
+"     let l:out = b:vimtex.out()
+"     let l:cmd = [g:vimtex_view_general_viewer, '-r']
+"     if !empty(system('pgrep Skim'))
+"         call extend(l:cmd, ['-g'])
+"     endif
+"     if has('nvim')
+"         call jobstart(l:cmd + [line('.'), l:out])
+"     elseif has('job')
+"         call job_start(l:cmd + [line('.'), l:out])
+"     else
+"         call system(join(l:cmd + [line('.'), shellescape(l:out)], ' '))
+"     endif
+" endfunction
 
 " https://www.reddit.com/r/vim/comments/4mobsr/weekly_vim_tips_and_tricks_thread_13/d3x5ch8
 set suffixes+=*.sty,*.bst,*.cls
